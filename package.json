@@ -44,7 +44,9 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "comma-separated-values": "^3.6.4",
     "react": "^15.5.4",
+    "react-data-grid": "^2.0.42",
     "react-dom": "^15.5.4"
   }
 }

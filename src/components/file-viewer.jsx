@@ -1,11 +1,34 @@
 import React, { Component } from 'react';
 
-export default class FileViewer extends Component {
+import { default as withFetching } from "./fetch-wrapper.jsx";
+import { CsvViewer } from "./drivers";
+
+class FileViewer extends Component {
   render() {
+    let Driver = this.getDriver(this.props.fileType);
+
     return (
       <div className='file-viewer'>
-        Hello, file viewer!
+        <Driver {...this.props} />
       </div>
     );
   }
+
+  getDriver(fileTYpe) {
+    switch (fileTYpe) {
+      case "csv": {
+        return withFetching(CsvViewer)
+      }
+      default: {
+        return <h1>File type is not supported</h1>
+      }
+    }
+  }
+};
+
+FileViewer.propTypes = {
+  fileType: React.PropTypes.string.isRequired,
+  filePath: React.PropTypes.string.isRequired,
 }
+
+export default FileViewer;
