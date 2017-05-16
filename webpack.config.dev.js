@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const autoprefixer = require("autoprefixer");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -33,6 +34,35 @@ module.exports = {
         options: {
           cacheDirectory: true,
         },
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              plugins: () => [
+                autoprefixer({
+                  browsers: [
+                    ">1%",
+                    "last 4 versions",
+                    "not ie < 9",
+                  ],
+                }),
+              ],
+            },
+          },
+          {
+            loader: "sass-loader",
+          },
+        ],
       },
     ],
   },
