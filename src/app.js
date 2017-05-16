@@ -5,6 +5,6 @@ import "styles/main.scss";
 
 ReactDOM.render(
   <FileViewer fileType="csv"
-              filePath="http://spatialkeydocs.s3.amazonaws.com/FL_insurance_sample.csv"/>,
+              filePath="https://data.cityofnewyork.us/api/views/3h6b-pt5u/rows.csv"/>,
   document.getElementById('app')
 );

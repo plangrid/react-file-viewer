@@ -4,12 +4,12 @@ function withFetching(WrappedComponent, props) {
   return class extends Component {
     constructor(props) {
       super(props);
-      this.state = { data: {} };
-      this.xhr = this.createRequest()
+      this.state = {};
+      this.xhr = this.createRequest(props.filePath)
     }
 
     componentDidMount() {
-      this.fetch(this.props.filePath);
+      this.fetch();
     }
 
     componentWillUnmount() {
@@ -17,15 +17,30 @@ function withFetching(WrappedComponent, props) {
     }
 
     render() {
-      if (this.state.data.length > 0 || Object.keys(this.state.data).length > 0) {
+      if (!this.xhr)
+        return <h1>CORS not supported..</h1>;
+
+      if (this.state.data) {
         return <WrappedComponent data={this.state.data} {...this.props} />;
       } else {
         return <h1>Loading..</h1>
       }
     }
 
-    createRequest() {
-      const xhr = new XMLHttpRequest();
+    createRequest(path) {
+      let xhr = new XMLHttpRequest();
+
+      if ("withCredentials" in xhr) {
+        // XHR for Chrome/Firefox/Opera/Safari.
+        xhr.open("GET", path, true);
+      } else if (typeof XDomainRequest != "undefined") {
+        // XDomainRequest for IE.
+        xhr = new XDomainRequest();
+        xhr.open("GET", path);
+      } else {
+        // CORS not supported.
+        xhr = null;
+      }
 
       xhr.onreadystatechange = () => {
         if (this.xhr.readyState == 4 && this.xhr.status == 200) {
@@ -36,8 +51,7 @@ function withFetching(WrappedComponent, props) {
       return xhr;
     }
 
-    fetch(path) {
-      this.xhr.open("GET", path, true);
+    fetch() {
       this.xhr.send();
     }
 
