@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { default as withFetching } from "./fetch-wrapper.jsx";
 import {
   CsvViewer,
-  Photo360Viewer
+  Photo360Viewer,
+  VideoViewer
 } from "./drivers";
 
 class FileViewer extends Component {
@@ -24,6 +25,9 @@ class FileViewer extends Component {
       }
       case "jpg": {
         return Photo360Viewer
+      }
+      case "mp4": {
+        return VideoViewer
       }
       default: {
         return <h1>File type is not supported</h1>
