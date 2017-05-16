@@ -20,8 +20,8 @@ module.exports = {
     publicPath: "/",
   },
   resolve: {
-    modules: [path.resolve(__dirname, "./src"), "node_modules",],
-    extensions: [".js", ".json", "jsx",],
+    modules: [path.resolve(__dirname, "src"), "node_modules"],
+    extensions: [".js", ".json", ".jsx"],
   },
 
   module: {
