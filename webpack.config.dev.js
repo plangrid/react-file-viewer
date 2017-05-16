@@ -64,6 +64,12 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(js|jsx)$/,
+        loader: "eslint-loader",
+        include: path.resolve(__dirname, "src"),
+        "enforce": "pre",
+      },
     ],
   },
 
