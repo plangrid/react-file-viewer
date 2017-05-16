@@ -1,0 +1,49 @@
+{
+  "name": "react-file-viewer",
+  "version": "0.0.1",
+  "description": "Extendable file viewer for web",
+  "main": "src/app.js",
+  "module": "src/app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plangrid/react-file-viewer.git"
+  },
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "build" : "webpack -p",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+  },
+  "author": "PlanGrid <opensource@plangrid.com>",
+  "contributors": [
+    {
+      "name": "Alexei Schiopu",
+      "email": "alexxschiopu@gmail.com",
+      "url": "http://schiopu.me"
+    },
+    {
+      "name": "Aaron Norby",
+      "email": "aaron.norby@gmail.com"
+    },
+    {
+      "name": "Viktoriya Savkina",
+      "email": "viktoriya.savkina@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plangrid/react-file-viewer/issues"
+  },
+  "homepage": "https://github.com/plangrid/react-file-viewer#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}
