@@ -1,6 +1,6 @@
 {
   "name": "react-file-viewer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Extendable file viewer for web",
   "main": "src/app.js",
   "module": "src/components/file-viewer.jsx",
