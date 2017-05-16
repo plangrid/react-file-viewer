@@ -5,7 +5,7 @@ import { CsvViewer } from "./drivers";
 
 class FileViewer extends Component {
   render() {
-    let Driver = this.getDriver(this.props.fileType);
+    let Driver = this.getDriver(this.props);
 
     return (
       <div className='file-viewer'>
@@ -14,10 +14,10 @@ class FileViewer extends Component {
     );
   }
 
-  getDriver(fileTYpe) {
-    switch (fileTYpe) {
+  getDriver(props) {
+    switch (props.fileType) {
       case "csv": {
-        return withFetching(CsvViewer)
+        return withFetching(CsvViewer, props)
       }
       default: {
         return <h1>File type is not supported</h1>
