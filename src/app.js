@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import FileViewer from './components/file-viewer.jsx';
+import "styles/main.scss";
 
 ReactDOM.render(
   <FileViewer fileType="csv"
