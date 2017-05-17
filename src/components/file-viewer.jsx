@@ -50,6 +50,7 @@ class FileViewer extends Component {
       }
       case "pdf": {
         return PDFViewer
+      }
       case "docx": {
         return DocxViewer
       }
