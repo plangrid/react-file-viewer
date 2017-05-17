@@ -38,7 +38,6 @@
     "autoprefixer": "^7.1.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
-    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.1",
@@ -62,8 +61,10 @@
     "react": "^15.5.4",
     "react-data-grid": "^2.0.42",
     "react-dom": "^15.5.4",
+    "react-visibility-sensor": "3.6.2",
     "three": "0.85.2",
-    "xlsx": "^0.10.1"
+    "xlsx": "^0.10.1",
+    "pdfjs-dist": "1.8.357"
   },
   "eslintConfig": {
     "extends": "airbnb"
