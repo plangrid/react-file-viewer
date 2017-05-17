@@ -3,7 +3,8 @@ VERSION?=patch
 publish:
 	npm run build; \
 	npm version ${VERSION}; \
-	npm publish
+	npm publish; \
+	git push origin master
 
 start:
 	npm start
