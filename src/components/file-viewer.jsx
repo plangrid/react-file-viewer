@@ -6,6 +6,7 @@ import {
   Photo360Viewer,
   VideoViewer,
   XlsxViewer,
+  XBimViewer
 } from "./drivers";
 
 class FileViewer extends Component {
@@ -47,6 +48,9 @@ class FileViewer extends Component {
       }
       case "mp4": {
         return VideoViewer
+      }
+      case "wexbim": {
+        return XBimViewer
       }
       default: {
         return <h1>File type is not supported</h1>

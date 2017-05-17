@@ -21,7 +21,7 @@ module.exports = {
     publicPath: "/",
   },
   resolve: {
-    modules: [path.resolve(__dirname, "src"), "node_modules"],
+    modules: [path.resolve(__dirname, "src"), path.resolve(__dirname, "example_files"), "node_modules"],
     extensions: [".js", ".json", ".jsx"],
   },
 
@@ -69,6 +69,10 @@ module.exports = {
         loader: "eslint-loader",
         include: path.resolve(__dirname, "src"),
         "enforce": "pre",
+      },
+      {
+        test: /\.wexbim$/,
+        loader: "file-loader",
       },
     ],
   },
