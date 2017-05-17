@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "styles/main.scss";
+import 'styles/main.scss';
 import withFetching from './fetch-wrapper';
 
 import {
@@ -20,8 +20,9 @@ class FileViewer extends Component {
   }
 
   componentDidMount() {
-    const height = document.getElementById('viewer').clientHeight;
-    const width = document.getElementById('viewer').clientWidth;
+    const container = document.getElementById('pg-viewer');
+    const height = container ? container.clientHeight : 0;
+    const width = container ? container.clientWidth : 0;
     this.setState({ height, width });
   }
 
