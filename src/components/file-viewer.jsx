@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { default as withFetching } from "./fetch-wrapper";
+import "styles/main.scss";
 
 import {
   CsvViewer,
@@ -18,20 +19,20 @@ class FileViewer extends Component {
   }
 
   componentDidMount() {
-    const height = document.getElementById("viewer").clientHeight;
-    const width = document.getElementById("viewer").clientWidth;
+    const height = document.getElementById("pg-viewer").clientHeight;
+    const width = document.getElementById("pg-viewer").clientWidth;
     this.setState({ height, width });
   }
 
   render() {
     let Driver = this.getDriver(this.props);
     return (
-      <div className="viewer-wrapper">
-        <a onClick={this.props.getPrevious} className="viewer-link prev"/>
-        <div className="viewer" id="viewer">
+      <div className="pg-viewer-wrapper">
+        <a onClick={this.props.getPrevious} className="pg-viewer-link prev"/>
+        <div className="pg-viewer" id="pg-viewer">
           <Driver {...this.props} width={this.state.width} height={this.state.height} />
         </div>
-        <a onClick={this.props.getNext} className="viewer-link next"/>
+        <a onClick={this.props.getNext} className="pg-viewer-link next"/>
       </div>
     );
   }
