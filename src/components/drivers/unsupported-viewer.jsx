@@ -1,8 +1,11 @@
 import React from 'react';
+import 'styles/unsupported.scss';
 
 const UnsupportedViewer = props => (
   <div className="pg-driver-view">
-    {`.${props.fileType}`} is not supported.
+    <div className="unsupported-message">
+      <b>{`.${props.fileType}`}</b> is not supported.
+    </div>
   </div>
 );
 
