@@ -1,1 +1,1 @@
-module.exports = require("./file-viewer");
+module.exports = require('./file-viewer');

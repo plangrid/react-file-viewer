@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import VisibilitySensor from "react-visibility-sensor";
+import PDFJS from 'pdfjs-dist';
+import React from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
+
 const INCREASE_PERCENTAGE = 0.2;
 const DEFAULT_SCALE = 1.1;
-import PDFJS from "pdfjs-dist";
 
 class PDFPage extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {};
+    this.onChange = this.onChange.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -35,7 +37,7 @@ class PDFPage extends React.Component {
     const viewport = page.getViewport(scale + zoom);
     const { width, height } = viewport;
 
-    const context = this.canvas.getContext("2d");
+    const context = this.canvas.getContext('2d');
     this.canvas.width = width;
     this.canvas.height = height;
 
@@ -48,7 +50,7 @@ class PDFPage extends React.Component {
   render() {
     return (
       <div className="pdf-canvas">
-        <VisibilitySensor onChange={this.onChange.bind(this)} partialVisibility >
+        <VisibilitySensor onChange={this.onChange} partialVisibility >
           <canvas ref={node => this.canvas = node} width="670" height="870" />
         </VisibilitySensor>
       </div>

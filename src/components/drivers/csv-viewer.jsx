@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 
-import ReactDataGrid from "react-data-grid";
-import CSV from "comma-separated-values";
+import ReactDataGrid from 'react-data-grid';
+import CSV from 'comma-separated-values';
 
 class CsvViewer extends Component {
   constructor(props) {
     super(props);
-    this.state = this.parse(props.data);
+    this.state = this.parse();
   }
 
-  parse(data) {
+  parse() {
     const rows = [];
     const columns = [];
 
-    new CSV(data).forEach(array => {
+    new CSV(this.props.data).forEach((array) => {
       if (columns.length < 1) {
         array.forEach((cell, idx) => {
           columns.push({

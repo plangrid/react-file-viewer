@@ -1,36 +1,36 @@
-const path = require("path");
-const webpack = require("webpack");
-const autoprefixer = require("autoprefixer");
+const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: "cheap-module-source-map",
+  devtool: 'cheap-module-source-map',
 
   entry: {
     app: [
-      "webpack-dev-server/client?http://localhost:8081/",
-      "webpack/hot/dev-server",
-      path.resolve(__dirname, "./src/app.js"),
+      'webpack-dev-server/client?http://localhost:8081/',
+      'webpack/hot/dev-server',
+      path.resolve(__dirname, './src/app.js'),
     ],
   },
   output: {
-    path: path.resolve(__dirname, "./build"),
+    path: path.resolve(__dirname, './build'),
     pathinfo: true,
-    filename: "app/js/[name].bundle.js",
-    publicPath: "/",
+    filename: 'app/js/[name].bundle.js',
+    publicPath: '/',
   },
   resolve: {
-    modules: [path.resolve(__dirname, "src"), path.resolve(__dirname, "example_files"), "node_modules"],
-    extensions: [".js", ".json", ".jsx"],
+    modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'example_files'), 'node_modules'],
+    extensions: ['.js', '.json', '.jsx'],
   },
 
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        include: path.resolve(__dirname, "./src"),
-        loader: "babel-loader",
+        include: path.resolve(__dirname, './src'),
+        loader: 'babel-loader',
         options: {
           cacheDirectory: true,
         },
@@ -39,40 +39,40 @@ module.exports = {
         test: /\.(css|scss)$/,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
-              ident: "postcss",
+              ident: 'postcss',
               plugins: () => [
                 autoprefixer({
                   browsers: [
-                    ">1%",
-                    "last 4 versions",
-                    "not ie < 9",
+                    '>1%',
+                    'last 4 versions',
+                    'not ie < 9',
                   ],
                 }),
               ],
             },
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
           },
         ],
       },
       {
         test: /\.(js|jsx)$/,
-        loader: "eslint-loader",
-        include: path.resolve(__dirname, "src"),
-        "enforce": "pre",
+        loader: 'eslint-loader',
+        include: path.resolve(__dirname, 'src'),
+        enforce: 'pre',
       },
       {
         test: /\.wexbim$/,
-        loader: "file-loader",
+        loader: 'file-loader',
       },
     ],
   },
@@ -80,8 +80,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve(__dirname, "./index.html"),
+      template: path.resolve(__dirname, './index.html'),
     }),
     new webpack.HotModuleReplacementPlugin(),
-  ]
+  ],
 };
