@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-import { default as withFetching } from "./fetch-wrapper.jsx";
+import { default as withFetching } from "./fetch-wrapper";
+
 import {
   CsvViewer,
   Photo360Viewer,
-  VideoViewer
+  VideoViewer,
+  XlsxViewer,
 } from "./drivers";
 
 class FileViewer extends Component {
@@ -36,6 +38,10 @@ class FileViewer extends Component {
     switch (props.fileType) {
       case "csv": {
         return withFetching(CsvViewer, props)
+      }
+      case "xlsx":{
+        const newProps = Object.assign({}, props, { responseType: "arraybuffer" });
+        return withFetching(XlsxViewer, newProps);
       }
       case "jpg": {
         return Photo360Viewer

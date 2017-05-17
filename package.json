@@ -59,8 +59,9 @@
     "comma-separated-values": "^3.6.4",
     "react": "^15.5.4",
     "react-data-grid": "^2.0.42",
+    "react-dom": "^15.5.4",
     "three": "0.85.2",
-    "react-dom": "^15.5.4"
+    "xlsx": "^0.10.1"
   },
   "eslintConfig": {
     "extends": "airbnb"

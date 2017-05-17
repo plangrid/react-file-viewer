@@ -40,12 +40,15 @@ function withFetching(WrappedComponent, props) {
       } else {
         // CORS not supported.
         xhr = null;
+        return;
+      }
+      if (props.responseType){
+        xhr.responseType = props.responseType;
       }
 
-      xhr.onreadystatechange = () => {
-        if (this.xhr.readyState == 4 && this.xhr.status == 200) {
-          this.setState({ data: xhr.responseText })
-        }
+      xhr.onload = () => {
+        const resp = props.responseType ? xhr.response : xhr.responseText
+        this.setState({ data: resp })
       }
 
       return xhr;
