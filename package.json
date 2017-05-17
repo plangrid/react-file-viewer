@@ -1,9 +1,9 @@
 {
   "name": "react-file-viewer",
-  "version": "0.1.1",
+  "version": "0.1.13",
   "description": "Extendable file viewer for web",
   "main": "src/components/file-viewer.jsx",
-  "module": "src/components/file-viewer.jsx",
+  "module": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/plangrid/react-file-viewer.git"
@@ -38,6 +38,7 @@
     "autoprefixer": "^7.1.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.1",
