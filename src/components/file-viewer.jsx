@@ -56,3 +56,4 @@ FileViewer.propTypes = {
 }
 
 export default FileViewer;
+module.exports = FileViewer;
