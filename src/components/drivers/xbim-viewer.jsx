@@ -11,10 +11,8 @@ export default class XBimViewer extends Component {
   }
 
   render() {
-    const width = `${this.props.width}px`;
-    const height = `${this.props.height}px`;
     return (
-      <div className="pg-driver-view" width={width} height={height} >
+      <div className="pg-driver-view" >
         <canvas id="xbim-viewer" />
       </div>
     );

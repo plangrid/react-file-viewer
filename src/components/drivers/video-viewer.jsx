@@ -1,7 +1,7 @@
 import React from 'react';
 
 const VideoViewer = props => (
-  <div className="pg-driver-view" width={`${props.width}px`} height={`${props.height}px`}>
+  <div className="pg-driver-view">
     <video
       controls
       type="video/mp4"
