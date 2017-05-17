@@ -10,6 +10,7 @@ import {
   XlsxViewer,
   XBimViewer,
   PDFViewer,
+  UnsupportedViewer,
 } from './drivers';
 
 class FileViewer extends Component {
@@ -49,7 +50,7 @@ class FileViewer extends Component {
         return XBimViewer;
       }
       default: {
-        return <h1>File type is not supported</h1>;
+        return UnsupportedViewer;
       }
     }
   }

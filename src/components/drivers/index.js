@@ -5,3 +5,4 @@ export { default as DocxViewer } from './docx-viewer';
 export { default as VideoViewer } from './video-viewer';
 export { default as XlsxViewer } from './xlsx-viewer';
 export { default as XBimViewer } from './xbim-viewer';
+export { default as UnsupportedViewer } from './unsupported-viewer';
