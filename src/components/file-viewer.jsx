@@ -4,6 +4,7 @@ import { default as withFetching } from "./fetch-wrapper";
 import {
   CsvViewer,
   Photo360Viewer,
+  DocxViewer,
   VideoViewer,
   XlsxViewer,
   XBimViewer,
@@ -49,6 +50,8 @@ class FileViewer extends Component {
       }
       case "pdf": {
         return PDFViewer
+      case "docx": {
+        return DocxViewer
       }
       case "mp4": {
         return VideoViewer
