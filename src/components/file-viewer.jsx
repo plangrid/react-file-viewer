@@ -11,6 +11,8 @@ import {
   XBimViewer,
   PDFViewer,
   UnsupportedViewer,
+  PhotoViewer,
+  PhotoViewerWrapper,
 } from './drivers';
 
 class FileViewer extends Component {
@@ -36,7 +38,8 @@ class FileViewer extends Component {
         return withFetching(XlsxViewer, newProps);
       }
       case 'jpg': {
-        return Photo360Viewer;
+        // return Photo360Viewer;
+        return PhotoViewerWrapper
       }
       case 'pdf': {
         return PDFViewer;

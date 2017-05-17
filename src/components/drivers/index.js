@@ -6,3 +6,5 @@ export { default as VideoViewer } from './video-viewer';
 export { default as XlsxViewer } from './xlsx-viewer';
 export { default as XBimViewer } from './xbim-viewer';
 export { default as UnsupportedViewer } from './unsupported-viewer';
+export { default as PhotoViewer } from './photo-viewer';
+export { default as PhotoViewerWrapper } from './photo-viewer-wrapper';
