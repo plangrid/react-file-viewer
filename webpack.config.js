@@ -9,7 +9,9 @@ var config = {
   entry: APP_DIR + '/components',
   output: {
     path: BUILD_DIR,
-    filename: 'index.js'
+    filename: 'index.js',
+    library: ["FileViewer"],
+    libraryTarget: "umd"
   },
   resolve: {
     modules: [path.resolve(__dirname, "./src"), "node_modules"],
