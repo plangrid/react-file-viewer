@@ -1,1 +1,1 @@
-export { default as FileViewer } from "./file-viewer";
+export { default as FileViewer } from "./file-viewer.jsx";
