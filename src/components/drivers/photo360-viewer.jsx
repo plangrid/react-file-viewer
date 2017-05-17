@@ -6,6 +6,10 @@ export default class extends Component {
     super(props);
     let latitude, savedX, savedY, savedLongitude, savedLatitude;
 
+    this.onMouseDown = this.onMouseDown.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this);
+    this.onMouseUp = this.onMouseUp.bind(this);
+
     this.state = {
       manualControl: false,
       longitude: 0,
@@ -17,18 +21,8 @@ export default class extends Component {
     }
   }
 
-  // todo - unbind the events
-  bindEvents() {
-    document.addEventListener("mousedown", this.onDocumentMouseDown.bind(this), false);
-    document.addEventListener("mousemove", this.onDocumentMouseMove.bind(this), false);
-    document.addEventListener("mouseup", this.onDocumentMouseUp.bind(this), false);
-  }
 
-  unbindEvents() {
-    document.removeEventListener("mousedown")
-  }
-
-  onDocumentMouseDown(event) {
+  onMouseDown(event) {
     event.preventDefault();
     this.setState({
       savedLongitude: this.state.longitude,
@@ -39,7 +33,7 @@ export default class extends Component {
     });
   }
 
-  onDocumentMouseMove(event){
+  onMouseMove(event){
     const { savedX, savedY, savedLongitude, savedLatitude } = this.state;
 
     if(this.state.manualControl){
@@ -52,7 +46,7 @@ export default class extends Component {
     }
   }
 
-  onDocumentMouseUp(event) {
+  onMouseUp(event) {
     this.setState({ manualControl: false });
   }
 
@@ -61,8 +55,6 @@ export default class extends Component {
   }
 
   componentDidMount() {
-    this.bindEvents();
-
     // add rendered
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -90,7 +82,7 @@ export default class extends Component {
     loader.load(
       // resource URL
       this.props.filePath,
-      // Function when resource is loaded
+      // Function when resource is   loaded
       ( texture ) => {
          this.sphereMaterial.map = texture
 
@@ -123,7 +115,12 @@ export default class extends Component {
 
   render() {
     return (
-      <div id="360-photo"></div>
+      <div id="360-photo"
+           onMouseDown={this.onMouseDown}
+           onMouseMove={this.onMouseMove}
+           onMouseUp={this.onMouseUp} >
+
+      </div>
     )
   }
 }
