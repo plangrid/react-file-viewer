@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import mammoth from 'mammoth';
+import 'styles/docx.scss';
 
 export default class extends Component {
 
