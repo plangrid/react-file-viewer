@@ -7,3 +7,9 @@ Supported file formats:
  - csv
  - xslx
  - docx
+
+
+
+ To start demo app
+
+`make start`

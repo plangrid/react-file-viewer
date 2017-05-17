@@ -6,7 +6,8 @@ import {
   Photo360Viewer,
   VideoViewer,
   XlsxViewer,
-  XBimViewer
+  XBimViewer,
+  PDFViewer,
 } from "./drivers";
 
 class FileViewer extends Component {
@@ -45,6 +46,9 @@ class FileViewer extends Component {
       }
       case "jpg": {
         return Photo360Viewer
+      }
+      case "pdf": {
+        return PDFViewer
       }
       case "mp4": {
         return VideoViewer
