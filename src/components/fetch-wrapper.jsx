@@ -13,7 +13,7 @@ function withFetching(WrappedComponent, props) {
     }
 
     componentWillUnmount() {
-      this.abort()
+      this.abort();
     }
 
     render() {
@@ -47,7 +47,7 @@ function withFetching(WrappedComponent, props) {
       }
 
       xhr.onload = () => {
-        const resp = props.responseType ? xhr.response : xhr.responseText
+        const resp = props.responseType ? xhr.response : xhr.responseText;
         this.setState({ data: resp })
       }
 

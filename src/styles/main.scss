@@ -1,27 +1,34 @@
 
-.viewer-wrapper {
+.pg-viewer-wrapper {
   height: 100%;
-  background: yellow;
   display: flex;
   flex-direction: row;
-}
 
-.viewer-link {
-  background: mediumpurple;
-  height: 100%;
-  flex-grow: 1;
-}
+  .pg-viewer {
+    height: 100%;
+    position: relative;
+    flex-grow: 2;
 
-.viewer {
-  background: green;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  flex-grow: 8;
+    .pg-driver-view {
+      margin: auto;
+      width: 100%;
+      height: 100%;
 
-  .react-grid-Container {
-    margin: auto;
+      canvas, video, .react-grid-Container {
+        width:100%;
+        height: 100%;
+      }
+    }
   }
+
+  .pg-viewer-link {
+    background: mediumpurple;
+    height: 100%;
+    flex-grow: 1;
+  }
+}
+.react-grid-Container {
+  margin: auto;
 }
 
 #360-photo {
