@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "webpack -d --watch",
     "build": "webpack -p",
-    "start": "node ./scripts/start.js"
+    "start": "node ./scripts/start.js",
+    "lint": "node_modules/.bin/eslint ./src/**/*.jsx"
   },
   "author": "PlanGrid <opensource@plangrid.com>",
   "contributors": [

@@ -7,3 +7,6 @@ publish:
 
 start:
 	npm start
+
+lint:
+	npm run lint

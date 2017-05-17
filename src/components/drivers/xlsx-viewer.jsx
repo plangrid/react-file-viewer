@@ -1,34 +1,38 @@
-import React, { Component } from "react";
-import XLSX from "xlsx";
+import React, { Component } from 'react';
+import XLSX from 'xlsx';
 
-import CsvViewer from "./csv-viewer";
+import CsvViewer from './csv-viewer';
 
 class XlxsViewer extends Component {
   constructor(props) {
     super(props);
-    this.state = this.parse(props.data);
+    this.state = this.parse();
   }
 
-  render() {
-    const { sheets, names, curSheetIndex} = this.state;
-    return (
-      <div className="spreadsheet-viewer">
-        {this.renderSheetNames(names)}
-        {this.renderSheetData(this.props, sheets[curSheetIndex || 0])}
-      </div>
-    );
+  parse() {
+    const dataArr = new Uint8Array(this.props.data);
+    const arr = [];
 
-  }
+    for (let i = 0; i !== dataArr.length; i += 1) {
+      arr.push(String.fromCharCode(dataArr[i]));
+    }
 
-  renderSheetData(props, sheet) {
-    return <CsvViewer {...props} data={sheet}/>
+    const workbook = XLSX.read(arr.join(''), { type: 'binary' });
+    const names = Object.keys(workbook.Sheets);
+    const sheets = names.map(name => (
+      XLSX.utils.sheet_to_csv(workbook.Sheets[name])
+    ));
+
+    return { sheets, names };
   }
 
   renderSheetNames(names) {
     const sheets = names.map((name, index) => (
-      <input type="button"
-             value={name}
-             onClick={() => (this.setState({ curSheetIndex: index }))} />
+      <input
+        type="button"
+        value={name}
+        onClick={() => (this.setState({ curSheetIndex: index }))}
+      />
     ));
 
     return (
@@ -38,25 +42,21 @@ class XlxsViewer extends Component {
     );
   }
 
-  parse (data) {
-    const dataArr = new Uint8Array(data);
-    const arr = [];
-
-    for (var i = 0; i != dataArr.length; ++i) {
-      arr.push(String.fromCharCode(dataArr[i]));
-    }
-
-    const workbook = XLSX.read(arr.join(""), { type: "binary" });
-    const names = Object.keys(workbook.Sheets);
-    const sheets = names.map(name => (
-      XLSX.utils.sheet_to_csv(workbook.Sheets[name])
-    ))
-
-    return { sheets, names };
+  renderSheetData(sheet) {
+    return (
+      <CsvViewer {...this.props} data={sheet} />
+    );
   }
 
+  render() {
+    const { sheets, names, curSheetIndex } = this.state;
+    return (
+      <div className="spreadsheet-viewer">
+        {this.renderSheetNames(names)}
+        {this.renderSheetData(sheets[curSheetIndex || 0])}
+      </div>
+    );
+  }
 }
 
 export default XlxsViewer;
-
-

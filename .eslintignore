@@ -1,1 +1,5 @@
 xbim-viewer.debug.bundle.js
+node_modules/**/*
+dist/**/*
+scripts/start.js
+src/app.js

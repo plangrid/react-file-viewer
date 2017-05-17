@@ -13,3 +13,14 @@ Supported file formats:
  To start demo app
 
 `make start`
+
+
+To run the linter
+
+`make lint`
+
+
+
+Roadmap
+
+- Remove ignored linting rules and fix them 
