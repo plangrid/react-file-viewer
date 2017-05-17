@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { default as withFetching } from "./fetch-wrapper";
 
 import {
