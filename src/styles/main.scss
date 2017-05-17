@@ -1,3 +1,36 @@
 body {
   color: red;
 }
+
+.viewer-wrapper {
+  height: 100%;
+  background: yellow;
+  display: flex;
+  flex-direction: row;
+}
+
+.viewer-link {
+  background: mediumpurple;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.viewer {
+  background: green;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  flex-grow: 8;
+
+  .react-grid-Container {
+    margin: auto;
+  }
+}
+
+#360-photo {
+  height: 100%;
+}
+
+#app {
+  background: pink;
+}

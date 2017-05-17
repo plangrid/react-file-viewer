@@ -35,13 +35,12 @@ const parse = data => {
 
 const CsvViewer = props => {
   const data = parse(props.data)
-
   return (
     <ReactDataGrid
       columns={data.columns}
       rowsCount={data.rows.length}
       rowGetter={rowGetter(data)}
-      minHeight={650}
+      minHeight={props.height || 650}
     />
   );
 };

@@ -2,7 +2,7 @@
   "name": "react-file-viewer",
   "version": "0.1.1",
   "description": "Extendable file viewer for web",
-  "main": "src/app.js",
+  "main": "src/components/file-viewer.jsx",
   "module": "src/components/file-viewer.jsx",
   "repository": {
     "type": "git",

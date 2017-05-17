@@ -7,12 +7,26 @@ import {
 } from "./drivers";
 
 class FileViewer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    const height = document.getElementById("viewer").clientHeight;
+    const width = document.getElementById("viewer").clientWidth;
+    this.setState({ height, width });
+  }
+
   render() {
     let Driver = this.getDriver(this.props);
-
     return (
-      <div className='file-viewer'>
-        <Driver {...this.props} />
+      <div className="viewer-wrapper">
+        <a onClick={this.props.getPrevious} className="viewer-link prev"/>
+        <div className="viewer" id="viewer">
+          <Driver {...this.props} width={this.state.width} height={this.state.height} />
+        </div>
+        <a onClick={this.props.getNext} className="viewer-link next"/>
       </div>
     );
   }
