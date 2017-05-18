@@ -12,8 +12,8 @@ import photo360 from '../example_files/360photo.jpg';
 
 ReactDOM.render(
   <FileViewer
-    fileType="jpg"
-    filePath={photo360}
+    fileType="wexbim"
+    filePath={sampleHouse}
   />,
   window.document.getElementById('app')
 );

@@ -1,10 +1,11 @@
 .pg-viewer-wrapper {
+  overflow-y: scroll;
+
   #docx {
     padding: 30px;
     width: 700px;
     background: white;
     margin: auto;
-    overflow-y: scroll;
   }
 
   html,
