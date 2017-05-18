@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import * as THREE from 'three';
 import PhotoViewer from './photo-viewer';
 import Photo360Viewer from './photo360-viewer';
 import Loading from '../loading';
@@ -23,15 +24,29 @@ export default class PhotoViewerWrapper extends Component {
   }
 
   componentDidMount() {
-    const image = new window.Image();
-    image.onload = (event) => {
-      this.setState({
-        originalWidth: event.target.width,
-        originalHeight: event.target.height,
-        imageLoaded: true,
-      });
-    };
-    image.src = this.props.filePath;
+    // spike on using promises and a different loader or adding three js loading manager
+    const loader = new THREE.TextureLoader();
+    loader.crossOrigin = '';
+    // load a resource
+    loader.load(
+      // resource URL
+      this.props.filePath,
+      // Function when resource is   loaded
+      (texture) => {
+        this.setState({
+          originalWidth: texture.image.width,
+          originalHeight: texture.image.height,
+          imageLoaded: true,
+          texture,
+        });
+      },
+      (xhr) => {
+        console.log(`${xhr.loaded / xhr.total * 100}% loaded`);
+      },
+      (xhr) => {
+        console.log('An error happened', xhr);
+      },
+    );
   }
 
   render() {

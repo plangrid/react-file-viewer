@@ -25,23 +25,24 @@ export default class PhotoViewer extends Component {
     return { height: imgHeight, width: imgWidth };
   }
 
+  componentDidMount() {
+    const { originalWidth, originalHeight } = this.props;
+    const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
+
+    this.props.texture.image.style.width = `${imageDimensions.width}px`;
+    this.props.texture.image.style.height = `${imageDimensions.height}px`;
+    this.props.texture.image.setAttribute('class', 'photo');
+    document.getElementById('pg-photo-container').appendChild(this.props.texture.image);
+  }
+
   render() {
     const containerStyles = {
       width: `${this.props.width}px`,
       height: `${this.props.height}px`,
     };
 
-    const { originalWidth, originalHeight } = this.props;
-    const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
-    const imgStyles = {
-      width: `${imageDimensions.width}px`,
-      height: `${imageDimensions.height}px`,
-    };
-
     return (
-      <div style={containerStyles} className="photo-viewer-container">
-        <img style={imgStyles} className="photo" src={this.props.filePath} alt="user-provided" />
-      </div>
+      <div style={containerStyles} className="photo-viewer-container" id="pg-photo-container" />
     );
   }
 }

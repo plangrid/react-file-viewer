@@ -66,11 +66,9 @@ class FileViewer extends Component {
     const Driver = this.getDriver(this.props);
     return (
       <div className="pg-viewer-wrapper">
-        <a onClick={this.props.getPrevious} className="pg-viewer-link prev" />
         <div className="pg-viewer" id="pg-viewer">
           <Driver {...this.props} width={this.state.width} height={this.state.height} />
         </div>
-        <a onClick={this.props.getNext} className="pg-viewer-link next" />
       </div>
     );
   }

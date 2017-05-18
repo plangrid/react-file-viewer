@@ -43,32 +43,10 @@ export default class extends Component {
 
     // creation of the sphere material
     this.sphereMaterial = new THREE.MeshBasicMaterial();
-
-
-    // spike on using promises and a different loader or adding three js loading manager
-    const loader = new THREE.TextureLoader();
-    loader.crossOrigin = 'anonymous';
-    // load a resource
-    loader.load(
-      // resource URL
-      this.props.filePath,
-      // Function when resource is   loaded
-      (texture) => {
-        this.sphereMaterial.map = texture;
-
-         // geometry + material = mesh (actual object)
-        const sphereMesh = new THREE.Mesh(this.sphere, this.sphereMaterial);
-        this.scene.add(sphereMesh);
-
-        this.updateView();
-      },
-      (xhr) => {
-        console.log(`${xhr.loaded / xhr.total * 100}% loaded`);
-      },
-      (xhr) => {
-        console.log('An error happened', xhr);
-      },
-    );
+    this.sphereMaterial.map = this.props.texture;
+    const sphereMesh = new THREE.Mesh(this.sphere, this.sphereMaterial);
+    this.scene.add(sphereMesh);
+    this.updateView();
   }
 
   componentWillUpdate() {

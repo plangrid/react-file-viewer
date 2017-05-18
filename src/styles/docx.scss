@@ -4,6 +4,7 @@
     width: 700px;
     background: white;
     margin: auto;
+    overflow-y: scroll;
   }
 
   html,
@@ -37,7 +38,8 @@
     unicode-bidi: embed;
   }
   li {
-    display: list-item
+    display: list-item;
+    list-style-type: disc;
   }
   head {
     display: none
@@ -63,9 +65,14 @@
   colgroup {
     display: table-column-group
   }
-  td,
   th {
     display: table-cell
+  }
+  td {
+    display: table-cell;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 0.2em 0.5em;
   }
   caption {
     display: table-caption
