@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import 'styles/video.scss';
 import Loading from '../loading';
 
 class VideoViewer extends Component {
@@ -10,6 +11,10 @@ class VideoViewer extends Component {
     };
   }
 
+  onCanPlay() {
+    this.setState({ loading: false });
+  }
+
   renderLoading() {
     if (this.state.loading) {
       return <Loading />;
@@ -18,17 +23,21 @@ class VideoViewer extends Component {
   }
 
   render() {
+    const visibility = this.state.loading ? 'hidden' : 'visible';
     return (
       <div className="pg-driver-view">
-        {this.renderLoading()}
-        <video
-          controls
-          type="video/mp4"
-          onCanPlay={() => this.setState({ loading: false })}
-          src={this.props.filePath}
-        >
-          Video playback is not supported by your browser.
-        </video>
+        <div className="video-container">
+          {this.renderLoading()}
+          <video
+            style={{ visibility }}
+            controls
+            type="video/mp4"
+            onCanPlay={e => this.onCanPlay(e)}
+            src={this.props.filePath}
+          >
+            Video playback is not supported by your browser.
+          </video>
+        </div>
       </div>
     );
   }
