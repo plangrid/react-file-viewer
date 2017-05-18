@@ -4,16 +4,12 @@ import ReactDataGrid from 'react-data-grid';
 import CSV from 'comma-separated-values';
 
 class CsvViewer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = this.parse();
-  }
 
-  parse() {
+  static parse(data) {
     const rows = [];
     const columns = [];
 
-    new CSV(this.props.data).forEach((array) => {
+    new CSV(data).forEach((array) => {
       if (columns.length < 1) {
         array.forEach((cell, idx) => {
           columns.push({
@@ -36,9 +32,17 @@ class CsvViewer extends Component {
     return { rows, columns };
   }
 
+  constructor(props) {
+    super(props);
+    this.state = CsvViewer.parse(props.data);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState(CsvViewer.parse(nextProps.data));
+  }
+
   render() {
     const { rows, columns } = this.state;
-
     return (
       <ReactDataGrid
         columns={columns}

@@ -23,7 +23,7 @@ class XlxsViewer extends Component {
       XLSX.utils.sheet_to_csv(workbook.Sheets[name])
     ));
 
-    return { sheets, names };
+    return { sheets, names, curSheetIndex: 0 };
   }
 
   renderSheetNames(names) {
@@ -31,7 +31,9 @@ class XlxsViewer extends Component {
       <input
         type="button"
         value={name}
-        onClick={() => (this.setState({ curSheetIndex: index }))}
+        onClick={() => {
+          this.setState({ curSheetIndex: index });
+        }}
       />
     ));
 
@@ -43,8 +45,9 @@ class XlxsViewer extends Component {
   }
 
   renderSheetData(sheet) {
+    const csvProps = Object.assign({}, this.props, { data: sheet });
     return (
-      <CsvViewer {...this.props} data={sheet} />
+      <CsvViewer {...csvProps} />
     );
   }
 
