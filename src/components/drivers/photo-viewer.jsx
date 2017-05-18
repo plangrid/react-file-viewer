@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import 'styles/photo-viewer.scss';
+
 export default class PhotoViewer extends Component {
   getImageDimensions(originalWidth, originalHeight) {
     // Scale image to fit into viewer
