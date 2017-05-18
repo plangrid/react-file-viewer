@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import mammoth from 'mammoth';
+
 import 'styles/docx.scss';
+import Loading from '../loading';
 
 export default class extends Component {
 
@@ -27,6 +29,6 @@ export default class extends Component {
   }
 
   render() {
-    return (<div id="docx" />);
+    return (<div id="docx"><Loading /></div>);
   }
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Loading from './loading';
+
 function withFetching(WrappedComponent, props) {
   return class extends Component {
     constructor() {
@@ -25,7 +27,7 @@ function withFetching(WrappedComponent, props) {
         return <WrappedComponent data={this.state.data} {...this.props} />;
       }
       return (
-        <h1>Loading..</h1>
+        <Loading />
       );
     }
 
