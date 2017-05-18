@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Error from './error';
 import Loading from './loading';
 
 function withFetching(WrappedComponent, props) {
@@ -11,7 +12,12 @@ function withFetching(WrappedComponent, props) {
     }
 
     componentDidMount() {
-      this.fetch();
+      try {
+        this.fetch();
+      } catch(e) {
+        this.props.onError && this.props.onError(e);
+        this.setState({ error: 'fetch error' });
+      }
     }
 
     componentWillUnmount() {
@@ -21,6 +27,10 @@ function withFetching(WrappedComponent, props) {
     render() {
       if (!this.xhr) {
         return <h1>CORS not supported..</h1>;
+      }
+
+      if (this.state.error) {
+        return <Error {...this.props} error={this.state.error} />;
       }
 
       if (this.state.data) {
@@ -51,6 +61,10 @@ function withFetching(WrappedComponent, props) {
       }
 
       xhr.onload = () => {
+        if (xhr.status >= 400) {
+          this.setState({ error: `fetch error with status ${xhr.status}` });
+          return;
+        }
         const resp = props.responseType ? xhr.response : xhr.responseText;
 
         this.setState({ data: resp });
