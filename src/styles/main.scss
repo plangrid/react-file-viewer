@@ -16,7 +16,6 @@
 
       canvas, video, .react-grid-Container {
         width:100%;
-        height: 100%;
       }
     }
   }
@@ -31,8 +30,9 @@
   margin: auto;
 }
 
-#360-photo {
+#xbim-viewer {
   height: 100%;
+  width: 100%
 }
 
 #app {
