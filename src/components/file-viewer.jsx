@@ -37,9 +37,12 @@ class FileViewer extends Component {
         const newProps = Object.assign({}, this.props, { responseType: 'arraybuffer' });
         return withFetching(XlsxViewer, newProps);
       }
-      case 'jpg': {
-        // return Photo360Viewer;
-        return PhotoViewerWrapper
+      case 'jpg':
+      case 'jpeg':
+      case 'gif':
+      case 'bmp':
+      case 'png': {
+        return PhotoViewerWrapper;
       }
       case 'pdf': {
         return PDFViewer;

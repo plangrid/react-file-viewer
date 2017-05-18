@@ -71,7 +71,7 @@ module.exports = {
         enforce: 'pre',
       },
       {
-        test: [/\.wexbim$/, /\.jpg$/],
+        test: [/\.wexbim$/, /\.jpg$/, /\.docx$/, /\.csv$/],
         loader: 'file-loader',
       },
     ],
