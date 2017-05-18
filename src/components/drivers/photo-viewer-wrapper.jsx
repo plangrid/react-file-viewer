@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import PhotoViewer from './photo-viewer';
 import Photo360Viewer from './photo360-viewer';
+import Loading from '../loading';
 
 function getPhotoDriver(width, height, fileType) {
   if (fileType === 'jpg' && window.Math.abs((width / height) - 2) <= 0.01) {
@@ -34,7 +35,9 @@ export default class PhotoViewerWrapper extends Component {
   }
 
   render() {
-    if (!this.state.imageLoaded) return null;
+    if (!this.state.imageLoaded) {
+      return <Loading />;
+    }
     const { originalWidth, originalHeight } = this.state;
     const PhotoDriver = getPhotoDriver(originalWidth, originalHeight, this.props.fileType);
 

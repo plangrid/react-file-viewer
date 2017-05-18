@@ -4,21 +4,21 @@ import withFetching from './fetch-wrapper';
 
 import {
   CsvViewer,
-  Photo360Viewer,
   DocxViewer,
   VideoViewer,
   XlsxViewer,
   XBimViewer,
   PDFViewer,
   UnsupportedViewer,
-  PhotoViewer,
   PhotoViewerWrapper,
 } from './drivers';
 
 class FileViewer extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      loading: true,
+    };
   }
 
   componentDidMount() {
