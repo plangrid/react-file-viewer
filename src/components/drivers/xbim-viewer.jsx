@@ -16,14 +16,16 @@ export default class XBimViewer extends Component {
       viewer.load(this.props.filePath);
       viewer.start();
     } catch (e) {
-      this.props.onError && this.props.onError(e);
+      if (this.props.onError) {
+        this.props.onError(e);
+      }
       this.setState({ error: e });
     }
   }
 
   render() {
     if (this.state.error) {
-      return <Error {...props} error={this.state.error} />;
+      return <Error {...this.props} error={this.state.error} />;
     }
 
     return (

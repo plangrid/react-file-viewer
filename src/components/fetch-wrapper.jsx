@@ -14,8 +14,10 @@ function withFetching(WrappedComponent, props) {
     componentDidMount() {
       try {
         this.fetch();
-      } catch(e) {
-        this.props.onError && this.props.onError(e);
+      } catch (e) {
+        if (this.props.onError) {
+          this.props.onError(e);
+        }
         this.setState({ error: 'fetch error' });
       }
     }
