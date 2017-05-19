@@ -55,6 +55,13 @@ const config = {
           },
         ],
       },
+      {
+        test: /\.png$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000, // if file <=10kb
+        },
+      },
     ],
   },
 };
