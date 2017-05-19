@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import XViewer from '../../utils/xbim-viewer.debug.bundle';
 
-import Error from './error';
+import Error from '../error';
 
 export default class XBimViewer extends Component {
   // TODO check for webgl compatibility
