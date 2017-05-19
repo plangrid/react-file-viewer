@@ -5,7 +5,6 @@ import 'styles/docx.scss';
 import Loading from '../loading';
 
 export default class extends Component {
-
   componentDidMount() {
     const jsonFile = new XMLHttpRequest();
     jsonFile.open('GET', this.props.filePath, true);
@@ -18,7 +17,10 @@ export default class extends Component {
           { includeDefaultStyleMap: true },
         )
         .then((result) => {
-          document.getElementById('docx').innerHTML = result.value;
+          const docEl = document.createElement('div');
+          docEl.className = 'document-container';
+          docEl.innerHTML = result.value;
+          document.getElementById('docx').innerHTML = docEl.outerHTML;
         })
         .catch((a) => {
           console.log('alexei: something went wrong', a);
@@ -29,6 +31,9 @@ export default class extends Component {
   }
 
   render() {
-    return (<div id="docx"><Loading /></div>);
+    return (
+      <div id="docx">
+        <Loading />
+      </div>);
   }
 }
