@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import 'styles/main.scss';
 import withFetching from './fetch-wrapper';
 
@@ -75,8 +76,10 @@ class FileViewer extends Component {
 }
 
 FileViewer.propTypes = {
-  fileType: React.PropTypes.string.isRequired,
-  filePath: React.PropTypes.string.isRequired,
+  fileType: PropTypes.string.isRequired,
+  filePath: PropTypes.string.isRequired,
+  onError: PropTypes.func,
+  errorComponent: PropTypes.element,
 };
 
 export default FileViewer;

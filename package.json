@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "comma-separated-values": "^3.6.4",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-data-grid": "^2.0.42",
     "react-dom": "^15.5.4",
