@@ -5,6 +5,10 @@ import Error from '../error';
 
 export default class XBimViewer extends Component {
   // TODO check for webgl compatibility
+  constructor(props) {
+    super(props);
+    this.state = { error: false };
+  }
 
   componentDidMount() {
     try {
