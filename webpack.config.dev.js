@@ -74,6 +74,13 @@ module.exports = {
         test: [/\.wexbim$/, /\.jpg$/, /\.docx$/, /\.csv$/, /\.mp4$/, /\.xlsx$/],
         loader: 'file-loader',
       },
+      {
+        test: /\.png$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+        },
+      }
     ],
   },
 

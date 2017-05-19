@@ -1,5 +1,11 @@
 import React from 'react';
 
-const Loading = () => <h1 className="loading">Loading...</h1>;
+import 'styles/loading.scss';
+
+const Loading = () => (
+  <div className="loading-container">
+    <span className="loading" />
+  </div>
+);
 
 export default Loading;
