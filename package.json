@@ -44,6 +44,7 @@
     "css-loader": "^0.28.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
+    "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
@@ -71,6 +72,12 @@
     "pdfjs-dist": "1.8.357"
   },
   "eslintConfig": {
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "plugins": ["import"],
+    "settings": {
+      "import/resolver": {
+        "webpack": "webpack.config.js"
+      }
+    }
   }
 }

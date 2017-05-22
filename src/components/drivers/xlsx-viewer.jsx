@@ -29,6 +29,7 @@ class XlxsViewer extends Component {
   renderSheetNames(names) {
     const sheets = names.map((name, index) => (
       <input
+        key={name}
         type="button"
         value={name}
         onClick={() => {

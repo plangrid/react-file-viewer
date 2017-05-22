@@ -3,6 +3,16 @@ import React, { Component } from 'react';
 import 'styles/photo-viewer.scss';
 
 export default class PhotoViewer extends Component {
+  componentDidMount() {
+    const { originalWidth, originalHeight } = this.props;
+    const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
+
+    this.props.texture.image.style.width = `${imageDimensions.width}px`;
+    this.props.texture.image.style.height = `${imageDimensions.height}px`;
+    this.props.texture.image.setAttribute('class', 'photo');
+    document.getElementById('pg-photo-container').appendChild(this.props.texture.image);
+  }
+
   getImageDimensions(originalWidth, originalHeight) {
     // Scale image to fit into viewer
     let imgHeight;
@@ -25,16 +35,6 @@ export default class PhotoViewer extends Component {
     }
 
     return { height: imgHeight, width: imgWidth };
-  }
-
-  componentDidMount() {
-    const { originalWidth, originalHeight } = this.props;
-    const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
-
-    this.props.texture.image.style.width = `${imageDimensions.width}px`;
-    this.props.texture.image.style.height = `${imageDimensions.height}px`;
-    this.props.texture.image.setAttribute('class', 'photo');
-    document.getElementById('pg-photo-container').appendChild(this.props.texture.image);
   }
 
   render() {

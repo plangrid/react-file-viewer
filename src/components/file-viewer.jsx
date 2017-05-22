@@ -82,5 +82,10 @@ FileViewer.propTypes = {
   errorComponent: PropTypes.element,
 };
 
+FileViewer.defaultProps = {
+  onError: () => null,
+  errorComponent: null,
+};
+
 export default FileViewer;
 module.exports = FileViewer;
