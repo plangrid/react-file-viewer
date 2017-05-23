@@ -7,7 +7,6 @@
   "plugins": [
     "transform-class-properties",
     "transform-es2015-classes",
-    "transform-es2015-object-super",
-    "transform-runtime"
+    "transform-es2015-object-super"
   ]
 }
