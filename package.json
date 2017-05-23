@@ -1,6 +1,6 @@
 {
   "name": "react-file-viewer",
-  "version": "0.3.27",
+  "version": "0.3.28",
   "description": "Extendable file viewer for web",
   "main": "src/components/file-viewer.jsx",
   "module": "dist/index.js",
@@ -65,6 +65,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "babel-polyfill": "^6.20.0",
     "comma-separated-values": "^3.6.4",
     "prop-types": "^15.5.10",
     "react": "^0.14.8",

@@ -9,7 +9,7 @@ const config = {
   output: {
     path: BUILD_DIR,
     filename: 'index.js',
-    library: ['FileViewer'],
+    library: 'FileViewer',
     libraryTarget: 'umd',
   },
   resolve: {
