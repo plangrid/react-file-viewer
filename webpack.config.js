@@ -5,13 +5,31 @@ const BUILD_DIR = path.resolve(__dirname, './dist');
 const APP_DIR = path.resolve(__dirname, './src');
 
 const config = {
-  entry: `${APP_DIR}/components`,
+  entry: `${APP_DIR}/components/file-viewer.jsx`,
   output: {
     path: BUILD_DIR,
     filename: 'index.js',
-    library: ['FileViewer'],
+    library: 'FileViewer',
     libraryTarget: 'umd',
   },
+  externals: [
+    {
+      react: {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react',
+      },
+    },
+    {
+      'react-dom': {
+        root: 'ReactDOM',
+        commonjs2: 'react-dom',
+        commonjs: 'react-dom',
+        amd: 'react-dom',
+      },
+    },
+  ],
   resolve: {
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
     extensions: ['.js', '.jsx', '.json'],

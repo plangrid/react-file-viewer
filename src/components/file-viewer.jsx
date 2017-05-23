@@ -65,6 +65,10 @@ class FileViewer extends Component {
 
   render() {
     const Driver = this.getDriver(this.props);
+    console.log("THIS IS DRIVER", Driver)
+    console.log(this.props)
+    return <div>will this work</div>;
+
     return (
       <div className="pg-viewer-wrapper">
         <div className="pg-viewer" id="pg-viewer">
