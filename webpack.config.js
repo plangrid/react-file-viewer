@@ -5,7 +5,7 @@ const BUILD_DIR = path.resolve(__dirname, './dist');
 const APP_DIR = path.resolve(__dirname, './src');
 
 const config = {
-  entry: `${APP_DIR}/components`,
+  entry: `${APP_DIR}/components/file-viewer.jsx`,
   output: {
     path: BUILD_DIR,
     filename: 'index.js',
