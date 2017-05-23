@@ -3,5 +3,11 @@
     "react",
     "es2015",
     "stage-0"
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "transform-es2015-classes",
+    "transform-es2015-object-super",
+    "transform-runtime"
   ]
 }
