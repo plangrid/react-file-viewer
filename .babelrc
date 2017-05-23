@@ -1,7 +1,12 @@
 {
   "presets": [
-    "es2015",
+    ["es2015", {"loose": true}],
     "react",
     "stage-0"
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "transform-es2015-classes",
+    "transform-es2015-object-super",
   ]
 }
