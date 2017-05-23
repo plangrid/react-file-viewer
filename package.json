@@ -1,6 +1,6 @@
 {
   "name": "react-file-viewer",
-  "version": "0.3.37",
+  "version": "0.3.38",
   "description": "Extendable file viewer for web",
   "main": "src/components/file-viewer.jsx",
   "module": "dist/index.js",
@@ -47,7 +47,6 @@
     "babel-plugin-transform-es2015-object-super": "^6.6.5",
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-runtime": "^6.20.0",
-    "babel-plugin-transform-runtime": "6.23.0",
     "babel-polyfill": "^6.20.0",
     "css-loader": "^0.28.1",
     "eslint": "^3.19.0",
