@@ -17,8 +17,8 @@ Extendable file viewer for web
 There is one main React component, `FileViewer`, that takes the following props:
 
 `fileType` string: type of resource to be shown (one of the supported file
-formats, eg `'png'`). Passing in an unsupported file type will result in the
-display of an `unsupported filetype` error.
+formats, eg `'png'`). Passing in an unsupported file type will result in displaying
+an `unsupported file type` message.
 
 `filePath` string: the url of the resource to be shown by the FileViewer.
 
@@ -87,6 +87,6 @@ case 'rtf':
   return RtfViewer;
 ```
 
-Roadmap
+## Roadmap
 
 - Remove ignored linting rules and fix them 
