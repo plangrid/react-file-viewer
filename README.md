@@ -72,7 +72,20 @@ purposes. It is by default served via webpack-dev-server.
 
 `make lint`
 
+### Extending the file viewer
 
+Adding supported file types is easy (and pull requests are welcome!). Say, for
+example, you want to add support for `.rtf` files. First, you need to create a
+"driver" for that file type. A driver is just a component that is capable of
+rendering that file type. (See what exists now in `src/components/drivers`.) After
+you've created the driver component and added it to `src/components/drivers`, you
+simply need to import the component into `file-vewer.jsx` and add a switch clause
+for `rtf` to the `getDriver` method. Ie:
+
+```
+case 'rtf':
+  return RtfViewer;
+```
 
 Roadmap
 
