@@ -12,6 +12,7 @@ import {
   PDFViewer,
   UnsupportedViewer,
   PhotoViewerWrapper,
+  AudioViewer,
 } from './drivers';
 
 class FileViewer extends Component {
@@ -51,6 +52,10 @@ class FileViewer extends Component {
       case 'docx': {
         return DocxViewer;
       }
+      case 'mp3': {
+        return AudioViewer;
+      }
+      case 'webm':
       case 'mp4': {
         return VideoViewer;
       }

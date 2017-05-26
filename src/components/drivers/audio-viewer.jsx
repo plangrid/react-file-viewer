@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import 'styles/video.scss';
 import Loading from '../loading';
 
-class VideoViewer extends Component {
+class AudioViewer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,19 +28,18 @@ class VideoViewer extends Component {
       <div className="pg-driver-view">
         <div className="video-container">
           {this.renderLoading()}
-          <video
+          <audio
             style={{ visibility }}
             controls
-            type={`video/${this.props.fileType}`}
             onCanPlay={e => this.onCanPlay(e)}
             src={this.props.filePath}
           >
             Video playback is not supported by your browser.
-          </video>
+          </audio>
         </div>
       </div>
     );
   }
 }
 
-export default VideoViewer;
+export default AudioViewer;
