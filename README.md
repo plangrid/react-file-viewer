@@ -4,12 +4,13 @@ Extendable file viewer for web
 
 ## Supported file formats:
 
- - png, jpeg, gif, bmp, including 360-degree images
+ - Images: png, jpeg, gif, bmp, including 360-degree images
  - pdf
  - csv
  - xslx
  - docx
- - mp4
+ - Video: mp4, webm
+ - Audio: mp3
 
 
 ## Usage
@@ -89,4 +90,4 @@ case 'rtf':
 
 ## Roadmap
 
-- Remove ignored linting rules and fix them 
+- Remove ignored linting rules and fix them

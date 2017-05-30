@@ -71,7 +71,7 @@ module.exports = {
         enforce: 'pre',
       },
       {
-        test: [/\.wexbim$/, /\.jpg$/, /\.docx$/, /\.csv$/, /\.mp4$/, /\.xlsx$/],
+        test: [/\.wexbim$/, /\.jpg$/, /\.docx$/, /\.csv$/, /\.mp4$/, /\.xlsx$/, /\.doc$/, /\.avi$/, /\.webm$/, /\.mov$/, /\.mp3$/],
         loader: 'file-loader',
       },
       {
@@ -80,7 +80,7 @@ module.exports = {
         options: {
           limit: 10000,
         },
-      }
+      },
     ],
   },
 
