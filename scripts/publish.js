@@ -30,7 +30,8 @@ inquirer.prompt([
   };
 
   //run tests
-  console.log(errColor('no tests are configured. someone should fix that.'));
+  console.log(errColor('no tests are configured.😢 someone should fix that.'));
+  return;
 
   // run build
   try {

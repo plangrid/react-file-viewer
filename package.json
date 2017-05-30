@@ -13,7 +13,7 @@
     "build": "webpack -p --progress",
     "start": "node ./scripts/start.js",
     "lint": "node_modules/.bin/eslint ./src/**/*.jsx",
-    "publish": "node ./scripts/publish.js"
+    "tag-and-publish": "node ./scripts/publish.js"
   },
   "author": "PlanGrid <opensource@plangrid.com>",
   "contributors": [
