@@ -8,12 +8,13 @@ const errColor = chalk.bold.red;
 const goodColor = chalk.bold.green;
 
 const buildCommand = 'npm run build';
+const branchCommand = 'git rev-parse --abbrev-ref HEAD';
 
 inquirer.prompt([
   {
     type: 'list',
     name: 'publish',
-    message: 'Are you sure you want to publish? This will run all tests and build first.',
+    message: 'Select a version to publish. This will run all tests and build first.',
     default: 0,
     choices: ['Abort', 'patch', 'minor', 'major']
   }
@@ -31,7 +32,15 @@ inquirer.prompt([
 
   //run tests
   console.log(errColor('no tests are configured.😢 someone should fix that.'));
-  return;
+
+  // make sure we're on the master branch
+  const branch = execSync(branchCommand);
+  const branchString = branch.toString().trim();
+  if (branchString !== 'master') {
+    console.log(errColor(`must be on master branch to publish. Currently on '${branchString}'`));
+    console.log(errColor('Aborting publish'));
+    return;
+  }
 
   // run build
   try {
