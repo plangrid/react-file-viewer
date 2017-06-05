@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const execSync = require('child_process').execSync;
 
 const inquirer = require('inquirer');
@@ -7,8 +9,11 @@ const runColor = chalk.bold.blue;
 const errColor = chalk.bold.red;
 const goodColor = chalk.bold.green;
 
+const appDir = fs.realpathSync(process.cwd());
+
 const buildCommand = 'npm run build';
 const branchCommand = 'git rev-parse --abbrev-ref HEAD';
+const jestCommand = `${path.join(appDir, 'node_modules/.bin/jest')} --env=jsdom --silent`;
 
 inquirer.prompt([
   {
@@ -31,7 +36,13 @@ inquirer.prompt([
   };
 
   //run tests
-  console.log(errColor('no tests are configured.😢 someone should fix that.'));
+  try {
+    console.log(runColor('running tests'));
+    execSync(jestCommand);
+  } catch (e) {
+    console.log(errColor('Tests failed. Aborting publish.'));
+    return;
+  }
 
   // make sure we're on the master branch
   const branch = execSync(branchCommand);
