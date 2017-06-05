@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AudioViewer matches snapshot 1`] = `
+<div
+  className="pg-driver-view"
+>
+  <div
+    className="video-container"
+  >
+    <div
+      className="loading-container"
+    >
+      <span
+        className="loading"
+      />
+    </div>
+    <audio
+      controls={true}
+      onCanPlay={[Function]}
+      src="fake/path"
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      Video playback is not supported by your browser.
+    </audio>
+  </div>
+</div>
+`;
