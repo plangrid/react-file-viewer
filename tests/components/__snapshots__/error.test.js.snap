@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error component matches stored snapshot 1`] = `
+<div
+  className="error-message"
+>
+  <p
+    className="alert"
+  >
+    Unable to preview file
+  </p>
+</div>
+`;

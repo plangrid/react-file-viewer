@@ -68,6 +68,26 @@ purposes. It is by default served via webpack-dev-server.
 
 `make start` will start the demo app served by webpack-dev-server
 
+### Testing
+
+Tests use Jest and Enzyme.
+
+Run tests with:
+
+```
+make test
+```
+
+This starts Jest in watch mode. To run a particular test file, while in watch mode
+hit `p` and then type the path or name of the file.
+
+Some tests use snapshots. If intended changes to a component cause snapshot tests
+to fail, snapshot files need to be updated (stored in `__snapshots__` directories).
+To do this run:
+
+```
+npm run jest --updateSnapshot
+```
 
 ### To run the linter
 
