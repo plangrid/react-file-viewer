@@ -75,7 +75,7 @@ Tests use Jest and Enzyme.
 Run tests with:
 
 ```
-npm test
+make test
 ```
 
 This starts Jest in watch mode. To run a particular test file, while in watch mode
