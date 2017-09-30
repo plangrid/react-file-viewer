@@ -1,3 +1,5 @@
+// Copyright (c) 2017 PlanGrid, Inc.
+
 import PDFJS from 'pdfjs-dist';
 import React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';

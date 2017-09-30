@@ -1,3 +1,5 @@
+// Copyright (c) 2017 PlanGrid, Inc.
+
 import React from 'react';
 import { mount } from 'enzyme';
 import FileViewer from 'components/file-viewer';

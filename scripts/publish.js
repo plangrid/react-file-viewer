@@ -1,3 +1,5 @@
+// Copyright (c) 2017 PlanGrid, Inc.
+
 const fs = require('fs');
 const path = require('path');
 const execSync = require('child_process').execSync;
