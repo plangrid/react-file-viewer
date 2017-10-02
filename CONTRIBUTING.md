@@ -41,9 +41,11 @@ Features (things that add new or improved functionality) may be accepted, but wi
 
 ## Legal
 
-You will need to complete a Contributor License Agreement (CLA). Briefly, this agreement testifies that you are granting us permission to use the submitted change according to the terms of the project's license, and that the work being submitted is under appropriate copyright.
+You will need to complete a [Contributor License Agreement (CLA)](https://github.com/plangrid/react-file-viewer/blob/master/CLA.md). Briefly, this agreement testifies that you are granting us permission to use the submitted change according to the terms of the project's license, and that the work being submitted is under appropriate copyright.
 
 Please submit a Contributor License Agreement (CLA) before submitting a pull request. Once we have received the signed CLA, we'll review the request. 
+
+If you've signed the CLA agreement but our bot fails to recognize it, please make sure your commits are linked to your github email. For more information follow [these instructions](https://help.github.com/articles/why-are-my-commits-linked-to-the-wrong-user/#commits-are-not-linked-to-any-user)
 
 ## Housekeeping
 
