@@ -1,3 +1,5 @@
+// Copyright (c) 2017 PlanGrid, Inc.
+
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');

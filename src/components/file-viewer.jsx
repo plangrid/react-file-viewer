@@ -1,3 +1,5 @@
+// Copyright (c) 2017 PlanGrid, Inc.
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import 'styles/main.scss';

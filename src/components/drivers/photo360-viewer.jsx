@@ -1,3 +1,5 @@
+// Copyright (c) 2017 PlanGrid, Inc.
+
 import React, { Component } from 'react';
 import * as THREE from 'three';
 import 'styles/photo360.scss';

@@ -1,3 +1,5 @@
+# Copyright (c) 2017 PlanGrid, Inc.
+
 publish:
 	npm run tag-and-publish
 

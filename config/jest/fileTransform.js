@@ -1,3 +1,4 @@
+// Copyright (c) 2017 PlanGrid, Inc.
 // transform file imports into filenames
 const path = require('path');
 
