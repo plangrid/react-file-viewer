@@ -29,8 +29,13 @@ export default class PhotoViewerWrapper extends Component {
     this.loadFile();
   }
 
-  componentDidUpdate() {
-    this.loadFile();
+	componentWillReceiveProps(nextProps, nextContext) {
+
+		const oldSrc = this.props.filePath;
+		const newSrc = nextProps.filePath;
+		if (oldSrc != newSrc) {
+			this.loadFile();
+		}
   }
 
   loadFile() {
