@@ -26,12 +26,25 @@ class FileViewer extends Component {
   }
 
   componentDidMount() {
-    const container = document.getElementById('pg-viewer');
-    const height = container ? container.clientHeight : 0;
-    const width = container ? container.clientWidth : 0;
-    this.setState({ height, width });
-  }
 
+	  this.binded = this.onResize.bind(this)
+	  window.addEventListener("resize",this.binded)
+    this.onResize();
+  }
+	componentWillUnmount() {
+		window.removeEventListener("resize",this.binded)
+	}
+
+
+
+	onResize(){
+		const container = document.getElementById('pg-viewer').parentNode;
+		const height = container ? container.clientHeight : 0;
+		const width = container ? container.clientWidth : 0;
+		this.setState({ height, width });
+
+
+	}
   getDriver() {
     switch (this.props.fileType) {
       case 'csv': {
