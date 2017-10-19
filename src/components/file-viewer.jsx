@@ -32,7 +32,7 @@ class FileViewer extends Component {
     this.onResize();
   }
 	componentWillUnmount() {
-		window.removeEventListener("resize",thi.binded)
+		window.removeEventListener("resize",this.binded)
 	}
 
 
