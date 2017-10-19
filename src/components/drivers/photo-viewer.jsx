@@ -1,17 +1,22 @@
 // Copyright (c) 2017 PlanGrid, Inc.
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import 'styles/photo-viewer.scss';
 
-export default class PhotoViewer extends Component {
+export default class PhotoViewer extends PureComponent {
 
 
   componentDidMount() {
     this.insertImage();
   }
 
-  componentDidUpdate() {
+	componentWillReceiveProps(nextProps, nextContext) {
+    const oldSrc = this.props.texture&&this.props.texture.image&&this.props.texture.image.src;
+    const newSrc = nextProps.texture&&nextProps.texture.image&&nextProps.texture.image.src;
+    if (oldSrc != newSrc){
+
+
     const removeCurrentImage = () => {
       const node = document.getElementById('pg-photo-container');
       while (node.hasChildNodes()) {
@@ -21,7 +26,11 @@ export default class PhotoViewer extends Component {
 
     removeCurrentImage();
     this.insertImage();
-  }
+    } else{
+      //no refresh
+    }
+	}
+
 
   getImageDimensions(originalWidth, originalHeight) {
     // Scale image to fit into viewer
