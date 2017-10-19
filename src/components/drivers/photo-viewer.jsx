@@ -14,7 +14,7 @@ export default class PhotoViewer extends PureComponent {
   }
 
 	componentWillUnmount() {
-		window.removeEventListener("resize",thi.binded)
+		window.removeEventListener("resize",this.binded)
   }
 
 	onResize(){
