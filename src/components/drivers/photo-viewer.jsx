@@ -9,6 +9,21 @@ export default class PhotoViewer extends PureComponent {
 
   componentDidMount() {
     this.insertImage();
+    this.binded = this.onResize.bind(this)
+    window.addEventListener("resize",this.binded)
+  }
+
+	componentWillUnmount() {
+		window.removeEventListener("resize",thi.binded)
+  }
+
+	onResize(){
+    console.log("resize")
+		const { originalWidth, originalHeight } = this.props;
+		const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
+		this.props.texture.image.style.width = `${imageDimensions.width}px`;
+		this.props.texture.image.style.height = `${imageDimensions.height}px`;
+		this.props.texture.image.setAttribute('class', 'photo');
   }
 
 	componentWillReceiveProps(nextProps, nextContext) {
