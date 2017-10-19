@@ -38,7 +38,7 @@ class FileViewer extends Component {
 
 
 	onResize(){
-		const container = document.getElementById('pg-viewer-wrapper');
+		const container = document.getElementById('pg-viewer').parentNode;
 		const height = container ? container.clientHeight : 0;
 		const width = container ? container.clientWidth : 0;
 		this.setState({ height, width });
