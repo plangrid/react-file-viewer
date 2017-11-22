@@ -3,22 +3,14 @@ import React, { Component } from 'react';
 import 'styles/photo-viewer.scss';
 
 export default class PhotoViewer extends Component {
-
-
   componentDidMount() {
-    this.insertImage();
-  }
+    const { originalWidth, originalHeight } = this.props;
+    const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
 
-  componentDidUpdate() {
-    const removeCurrentImage = () => {
-      const node = document.getElementById('pg-photo-container');
-      while (node.hasChildNodes()) {
-        node.removeChild(node.lastChild);
-      }
-    };
-
-    removeCurrentImage();
-    this.insertImage();
+    this.props.texture.image.style.width = `${imageDimensions.width}px`;
+    this.props.texture.image.style.height = `${imageDimensions.height}px`;
+    this.props.texture.image.setAttribute('class', 'photo');
+    document.getElementById('pg-photo-container').appendChild(this.props.texture.image);
   }
 
   getImageDimensions(originalWidth, originalHeight) {
@@ -43,16 +35,6 @@ export default class PhotoViewer extends Component {
     }
 
     return { height: imgHeight, width: imgWidth };
-  }
-
-  insertImage() {
-    const { originalWidth, originalHeight } = this.props;
-    const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
-
-    this.props.texture.image.style.width = `${imageDimensions.width}px`;
-    this.props.texture.image.style.height = `${imageDimensions.height}px`;
-    this.props.texture.image.setAttribute('class', 'photo');
-    document.getElementById('pg-photo-container').appendChild(this.props.texture.image);
   }
 
   render() {
