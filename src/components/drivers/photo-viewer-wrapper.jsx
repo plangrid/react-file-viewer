@@ -26,14 +26,6 @@ export default class PhotoViewerWrapper extends Component {
   }
 
   componentDidMount() {
-    this.loadFile();
-  }
-
-  componentDidUpdate() {
-    this.loadFile();
-  }
-
-  loadFile() {
     // spike on using promises and a different loader or adding three js loading manager
     const loader = new THREE.TextureLoader();
     loader.crossOrigin = '';

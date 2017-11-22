@@ -67,7 +67,7 @@ purposes. It is by default served via webpack-dev-server.
 
 ### To start demo app
 
-`make start` will start the demo app served by webpack-dev-server at localhost:8081
+`make start` will start the demo app served by webpack-dev-server
 
 ### Testing
 
