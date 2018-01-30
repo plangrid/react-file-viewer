@@ -28,23 +28,6 @@ function withFetching(WrappedComponent, props) {
       this.abort();
     }
 
-    render() {
-      if (!this.xhr) {
-        return <h1>CORS not supported..</h1>;
-      }
-
-      if (this.state.error) {
-        return <Error {...this.props} error={this.state.error} />;
-      }
-
-      if (this.state.data) {
-        return <WrappedComponent data={this.state.data} {...this.props} />;
-      }
-      return (
-        <Loading />
-      );
-    }
-
     createRequest(path) {
       let xhr = new XMLHttpRequest();
 
@@ -85,6 +68,23 @@ function withFetching(WrappedComponent, props) {
       if (this.xhr) {
         this.xhr.abort();
       }
+    }
+
+    render() {
+      if (!this.xhr) {
+        return <h1>CORS not supported..</h1>;
+      }
+
+      if (this.state.error) {
+        return <Error {...this.props} error={this.state.error} />;
+      }
+
+      if (this.state.data) {
+        return <WrappedComponent data={this.state.data} {...this.props} />;
+      }
+      return (
+        <Loading />
+      );
     }
   };
 }
