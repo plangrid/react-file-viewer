@@ -6,7 +6,9 @@ import 'styles/unsupported.scss';
 const UnsupportedViewer = props => (
   <div className="pg-driver-view">
     <div className="unsupported-message">
-      <b>{`.${props.fileType}`}</b> is not supported.
+      {props.unsupportedComponent
+        ? <props.unsupportedComponent {...props} />
+        : <p className="alert"><b>{`.${props.fileType}`}</b> is not supported.</p>}
     </div>
   </div>
 );

@@ -17,6 +17,7 @@ import avi from '../example_files/drop.avi';
 import webm from '../example_files/small.webm'
 import mov from '../example_files/step.mov'
 import mp3 from '../example_files/sample.mp3'
+import rtf from '../example_files/sample.rtf';
 
 ReactDOM.render(
   <FileViewer
