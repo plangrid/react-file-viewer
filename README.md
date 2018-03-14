@@ -20,7 +20,7 @@ There is one main React component, `FileViewer`, that takes the following props:
 
 `fileType` string: type of resource to be shown (one of the supported file
 formats, eg `'png'`). Passing in an unsupported file type will result in displaying
-an `unsupported file type` message.
+an `unsupported file type` message (or a custom component).
 
 `filePath` string: the url of the resource to be shown by the FileViewer.
 
@@ -31,7 +31,10 @@ pass a callback for a logging utility.
 `errorComponent` react element [optional]: A component to render in case of error
 instead of the default error component that comes packaged with react-file-viewer.
 
-So, to use this component, you might do the following:
+`unsupportedComponent` react element [optional]: A component to render in case
+the file format is not supported.
+
+To use a custom error component, you might do the following:
 
 ```
 // MyApp.js
