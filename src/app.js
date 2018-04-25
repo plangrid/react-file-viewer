@@ -18,11 +18,12 @@ import webm from '../example_files/small.webm'
 import mov from '../example_files/step.mov'
 import mp3 from '../example_files/sample.mp3'
 import rtf from '../example_files/sample.rtf';
+import pdf from '../example_files/sample.pdf';
 
 ReactDOM.render(
   <FileViewer
-    fileType="mp3"
-    filePath={mp3}
+    fileType="pdf"
+    filePath={pdf}
   />,
   window.document.getElementById('app')
 );
