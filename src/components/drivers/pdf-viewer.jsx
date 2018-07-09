@@ -1,9 +1,11 @@
 // Copyright (c) 2017 PlanGrid, Inc.
 
-import { PDFJS } from 'pdfjs-dist';
 import React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
+import { PDFJS } from 'pdfjs-dist/build/pdf.combined';
+import 'pdfjs-dist/web/compatibility';
 
+PDFJS.disableWorker = true;
 const INCREASE_PERCENTAGE = 0.2;
 const DEFAULT_SCALE = 1.1;
 
