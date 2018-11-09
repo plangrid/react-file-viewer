@@ -53,7 +53,7 @@ class MyComponent extends Component {
         fileType={type}
         filePath={file}
         errorComponent={CustomErrorComponent}
-        onError={this.onError}
+        onError={this.onError}/>
     );
   }
 
