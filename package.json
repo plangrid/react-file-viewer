@@ -76,15 +76,15 @@
   },
   "dependencies": {
     "comma-separated-values": "^3.6.4",
+    "mammoth": "1.3.6",
+    "pdfjs-dist": "1.8.357",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-data-grid": "^2.0.42",
     "react-dom": "^15.5.4",
-    "react-visibility-sensor": "3.6.2",
-    "mammoth": "1.3.6",
+    "react-visibility-sensor": "^5.0.2",
     "three": "0.85.2",
-    "xlsx": "^0.10.1",
-    "pdfjs-dist": "1.8.357"
+    "xlsx": "^0.10.1"
   },
   "jest": {
     "testPathIgnorePatterns": [
