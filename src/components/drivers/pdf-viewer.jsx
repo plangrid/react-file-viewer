@@ -9,15 +9,23 @@ PDFJS.disableWorker = true;
 const INCREASE_PERCENTAGE = 0.2;
 const DEFAULT_SCALE = 1.1;
 
-class PDFPage extends React.Component {
-
+export class PDFPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
     this.onChange = this.onChange.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.disableVisibilityCheck) this.fetchAndRenderPage();
+  }
+
   componentDidUpdate(prevProps, prevState) {
+    if (this.props.disableVisibilityCheck) {
+      if (prevProps.zoom !== this.props.zoom) this.fetchAndRenderPage();
+      return;
+    }
+
     // we want to render/re-render in two scenarias
     // user scrolls to the pdf
     // user zooms in
@@ -54,9 +62,12 @@ class PDFPage extends React.Component {
   render() {
     return (
       <div className="pdf-canvas">
-        <VisibilitySensor onChange={this.onChange} partialVisibility >
-          <canvas ref={node => this.canvas = node} width="670" height="870" />
-        </VisibilitySensor>
+        {this.props.disableVisibilityCheck ? <canvas ref={node => this.canvas = node} width="670" height="870" /> : (
+          <VisibilitySensor onChange={this.onChange} partialVisibility >
+            <canvas ref={node => this.canvas = node} width="670" height="870" />
+          </VisibilitySensor>
+            )
+        }
       </div>
     );
   }
@@ -119,6 +130,7 @@ export default class PDFDriver extends React.Component {
         pdf={pdf}
         containerWidth={containerWidth}
         zoom={zoom * INCREASE_PERCENTAGE}
+        disableVisibilityCheck={this.props.disableVisibilityCheck}
       />)
     ));
   }
@@ -150,3 +162,7 @@ export default class PDFDriver extends React.Component {
     );
   }
 }
+
+PDFDriver.defaultProps = {
+  disableVisibilityCheck: false,
+};

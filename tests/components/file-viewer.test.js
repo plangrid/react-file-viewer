@@ -10,4 +10,10 @@ describe('file-viewer', () => {
       <FileViewer fileType='fake' filePath='fake/path' />
     );
   });
+
+  it('renders without crashing with visibility check disabled', () => {
+    mount(
+      <FileViewer fileType='fake' filePath='fake/path' disableVisibilityCheck />
+    );
+  });
 });
