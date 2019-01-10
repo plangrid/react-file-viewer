@@ -7,7 +7,7 @@ import Loading from './loading';
 
 function withFetching(WrappedComponent, props) {
   return class extends Component {
-    constructor() {
+    constructor(props) {
       super(props);
       this.state = {};
       this.xhr = this.createRequest(props.filePath);

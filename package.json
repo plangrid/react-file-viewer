@@ -53,7 +53,8 @@
     "babel-runtime": "^6.20.0",
     "chalk": "^1.1.3",
     "css-loader": "^0.28.1",
-    "enzyme": "^2.8.2",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-import-resolver-webpack": "^0.8.1",
@@ -64,10 +65,12 @@
     "file-loader": "^0.11.1",
     "html-webpack-plugin": "^2.28.0",
     "inquirer": "^3.0.6",
-    "jest": "^20.0.4",
+    "jest": "^23.6.0",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.5",
-    "react-test-renderer": "^15.5.4",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-test-renderer": "^16.6.3",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
@@ -79,12 +82,14 @@
     "mammoth": "1.3.6",
     "pdfjs-dist": "1.8.357",
     "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-data-grid": "^2.0.42",
-    "react-dom": "^15.5.4",
+    "react-data-grid": "^5.0.5",
     "react-visibility-sensor": "^5.0.2",
     "three": "0.85.2",
     "xlsx": "^0.10.1"
+  },
+  "peerDependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -102,7 +107,8 @@
     "moduleDirectories": [
       "src",
       "node_modules"
-    ]
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/tests/setupTests.js"
   },
   "eslintConfig": {
     "extends": "airbnb",

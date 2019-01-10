@@ -16,6 +16,8 @@ Extendable file viewer for web
 
 ## Usage
 
+Note this module works best with react 16+.  If you are using React < 16 you will likely need to use version 0.5. `npm install react-file-viewer@0.5.0`.
+
 There is one main React component, `FileViewer`, that takes the following props:
 
 `fileType` string: type of resource to be shown (one of the supported file
