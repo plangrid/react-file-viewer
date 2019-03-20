@@ -1,6 +1,6 @@
 {
   "name": "@gp.singh/react-file-preview",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Extendable file viewer for web",
   "main": "dist/index.js",
   "module": "dist/index.js",
