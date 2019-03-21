@@ -25,13 +25,6 @@ class FileViewer extends Component {
     };
   }
 
-  componentDidMount() {
-    const container = document.getElementById('pg-viewer');
-    const height = container ? container.clientHeight : 0;
-    const width = container ? container.clientWidth : 0;
-    this.setState({ height, width });
-  }
-
   getDriver() {
     switch (this.props.fileType) {
       case 'csv': {
@@ -71,11 +64,14 @@ class FileViewer extends Component {
   }
 
   render() {
-    const Driver = this.getDriver(this.props);
+    const Driver = this.getDriver(this.props),
+          container = document.getElementById('pg-viewer'),
+          height = container ? container.clientHeight : 0,
+          width = container ? container.clientWidth : 0;
     return (
       <div className="pg-viewer-wrapper">
         <div className="pg-viewer" id="pg-viewer">
-          <Driver {...this.props} width={this.state.width} height={this.state.height} />
+          <Driver {...this.props} width={width} height={height} />
         </div>
       </div>
     );
