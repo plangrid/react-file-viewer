@@ -13,8 +13,16 @@ class AudioViewer extends Component {
     };
   }
 
-  onCanPlay() {
+  onCanPlay = () => {
     this.setState({ loading: false });
+  }
+
+  componentDidMount() {
+    this.audio.addEventListener('loadedmetadata', this.onCanPlay);
+  }
+
+  componentWillUnmount() {
+    this.audio.removeEventListener('loadedmetadata', this.onCanPlay);
   }
 
   renderLoading() {
@@ -33,6 +41,7 @@ class AudioViewer extends Component {
           <audio
             style={{ visibility }}
             controls
+            ref={(audio) => this.audio = audio}
             onCanPlay={e => this.onCanPlay(e)}
             src={this.props.filePath}
           >

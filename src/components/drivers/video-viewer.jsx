@@ -13,8 +13,16 @@ class VideoViewer extends Component {
     };
   }
 
-  onCanPlay() {
+  onCanPlay = () => {
     this.setState({ loading: false });
+  }
+
+  componentDidMount() {
+    this.video.addEventListener('loadedmetadata', this.onCanPlay);
+  }
+
+  componentWillUnmount() {
+    this.video.removeEventListener('loadedmetadata', this.onCanPlay);
   }
 
   renderLoading() {
@@ -35,6 +43,7 @@ class VideoViewer extends Component {
             controls
             type={`video/${this.props.fileType}`}
             onCanPlay={e => this.onCanPlay(e)}
+            ref={(video) => this.video = video}
             src={this.props.filePath}
           >
             Video playback is not supported by your browser.
