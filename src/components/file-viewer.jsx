@@ -71,11 +71,12 @@ class FileViewer extends Component {
   }
 
   render() {
+    const { wrapperStyle, style, ...rest } = this.props;
     const Driver = this.getDriver(this.props);
     return (
-      <div className="pg-viewer-wrapper">
-        <div className="pg-viewer" id="pg-viewer">
-          <Driver {...this.props} width={this.state.width} height={this.state.height} />
+      <div style={wrapperStyle} className="pg-viewer-wrapper">
+        <div style={style} className="pg-viewer" id="pg-viewer">
+          <Driver {...rest} width={this.state.width} height={this.state.height} />
         </div>
       </div>
     );
@@ -83,6 +84,8 @@ class FileViewer extends Component {
 }
 
 FileViewer.propTypes = {
+  wrapperStyle: PropTypes.string,
+  style: PropTypes.string,
   fileType: PropTypes.string.isRequired,
   filePath: PropTypes.string.isRequired,
   onError: PropTypes.func,
