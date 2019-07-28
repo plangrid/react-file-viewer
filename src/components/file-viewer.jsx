@@ -6,17 +6,7 @@ import classNames from 'classnames';
 import 'styles/main.scss';
 import withFetching from './fetch-wrapper';
 
-import {
-  CsvViewer,
-  DocxViewer,
-  VideoViewer,
-  XlsxViewer,
-  XBimViewer,
-  PDFViewer,
-  UnsupportedViewer,
-  PhotoViewerWrapper,
-  AudioViewer,
-} from './drivers';
+import { CsvViewer, DocxViewer, VideoViewer, XlsxViewer, XBimViewer, PDFViewer, UnsupportedViewer, PhotoViewerWrapper, AudioViewer } from './drivers';
 
 class FileViewer extends Component {
   constructor(props) {
@@ -30,7 +20,10 @@ class FileViewer extends Component {
     const container = document.getElementById('pg-viewer');
     const height = container ? container.clientHeight : 0;
     const width = container ? container.clientWidth : 0;
-    this.setState({ height, width });
+    this.setState({
+      height,
+      width,
+    });
   }
 
   getDriver() {
@@ -39,7 +32,9 @@ class FileViewer extends Component {
         return withFetching(CsvViewer, this.props);
       }
       case 'xlsx': {
-        const newProps = Object.assign({}, this.props, { responseType: 'arraybuffer' });
+        const newProps = Object.assign({}, this.props, {
+          responseType: 'arraybuffer',
+        });
         return withFetching(XlsxViewer, newProps);
       }
       case 'jpg':
@@ -72,11 +67,11 @@ class FileViewer extends Component {
   }
 
   render() {
-    const { wrapperStyle, wrapperClassNames, style, classNames, ...rest } = this.props;
-    const Driver = this.getDriver(this.props);
+    const { wrapperStyle, wrapperClassName, style, className, ...rest } = this.props;
+    const Driver = this.getDriver();
     return (
-      <div style={wrapperStyle} className=classNames("pg-viewer-wrapper", wrapperClassNames)>
-        <div style={style} className=classNames("pg-viewer", classNames) id="pg-viewer">
+      <div style={wrapperStyle} className={classNames('pg-viewer-wrapper', wrapperClassName)}>
+        <div style={style} className={classNames('pg-viewer', className)} id="pg-viewer">
           <Driver {...rest} width={this.state.width} height={this.state.height} />
         </div>
       </div>
@@ -85,8 +80,6 @@ class FileViewer extends Component {
 }
 
 FileViewer.propTypes = {
-  wrapperStyle: PropTypes.string,
-  style: PropTypes.string,
   fileType: PropTypes.string.isRequired,
   filePath: PropTypes.string.isRequired,
   onError: PropTypes.func,
