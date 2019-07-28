@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import 'styles/main.scss';
 import withFetching from './fetch-wrapper';
 
@@ -71,11 +72,11 @@ class FileViewer extends Component {
   }
 
   render() {
-    const { wrapperStyle, style, ...rest } = this.props;
+    const { wrapperStyle, wrapperClassNames, style, classNames, ...rest } = this.props;
     const Driver = this.getDriver(this.props);
     return (
-      <div style={wrapperStyle} className="pg-viewer-wrapper">
-        <div style={style} className="pg-viewer" id="pg-viewer">
+      <div style={wrapperStyle} className=classNames("pg-viewer-wrapper", wrapperClassNames)>
+        <div style={style} className=classNames("pg-viewer", classNames) id="pg-viewer">
           <Driver {...rest} width={this.state.width} height={this.state.height} />
         </div>
       </div>
