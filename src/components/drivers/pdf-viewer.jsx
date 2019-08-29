@@ -126,6 +126,7 @@ export default class PDFDriver extends React.Component {
     const pages = Array.apply(null, { length: pdf.numPages });
     return pages.map((v, i) => (
       (<PDFPage
+        key={`page-${index}`}
         index={i + 1}
         pdf={pdf}
         containerWidth={containerWidth}
