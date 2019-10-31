@@ -7,10 +7,10 @@ import Loading from './loading';
 
 function withFetching(WrappedComponent, props) {
   return class extends Component {
-    constructor(props) {
-      super(props);
+    constructor(props1) {
+      super(props1);
       this.state = {};
-      this.xhr = this.createRequest(props.filePath);
+      this.xhr = this.createRequest(props1.filePath);
     }
 
     componentDidMount() {
