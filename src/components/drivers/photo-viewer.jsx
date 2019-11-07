@@ -5,14 +5,21 @@ import React, { Component } from 'react';
 import 'styles/photo-viewer.scss';
 
 export default class PhotoViewer extends Component {
+  divRef = React.createRef();
+
   componentDidMount() {
     const { originalWidth, originalHeight } = this.props;
-    const imageDimensions = this.getImageDimensions.call(this, originalWidth, originalHeight);
+    const imageDimensions = this.getImageDimensions.call(
+      this,
+      originalWidth,
+      originalHeight,
+    );
 
     this.props.texture.image.style.width = `${imageDimensions.width}px`;
     this.props.texture.image.style.height = `${imageDimensions.height}px`;
     this.props.texture.image.setAttribute('class', 'photo');
-    document.getElementById('pg-photo-container').appendChild(this.props.texture.image);
+    if (this.divRef.current)
+      this.divRef.current.appendChild(this.props.texture.image);
   }
 
   getImageDimensions(originalWidth, originalHeight) {
@@ -46,7 +53,11 @@ export default class PhotoViewer extends Component {
     };
 
     return (
-      <div style={containerStyles} className="photo-viewer-container" id="pg-photo-container" />
+      <div
+        style={containerStyles}
+        className="photo-viewer-container"
+        ref={this.divRef}
+      />
     );
   }
 }

@@ -1,6 +1,6 @@
 {
   "rules": {
-    "react/prop-types": [0, {customValidators: ["skipUndeclared"]}],
+    "react/prop-types": [0, { "customValidators": ["skipUndeclared"] }],
     "jsx-a11y/media-has-caption": [0],
     "jsx-a11y/anchor-has-content": [0],
     "jsx-a11y/no-static-element-interactions": [0],
@@ -11,13 +11,14 @@
     "no-mixed-operators": [0],
     "max-len": [0],
     "react/no-unused-prop-types": [0],
-    "react/no-did-mount-set-state": [0],
+    "react/no-did-mount-set-state": [0]
   },
+  "parser": "babel-eslint",
   "extends": "airbnb",
   "globals": {
-    XMLHttpRequest: true,
-    XDomainRequest: true,
-    document: true,
-    window: true
+    "XMLHttpRequest": true,
+    "XDomainRequest": true,
+    "document": true,
+    "window": true
   }
 }
