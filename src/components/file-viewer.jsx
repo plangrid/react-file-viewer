@@ -26,11 +26,38 @@ class FileViewer extends Component {
   }
 
   componentDidMount() {
-    const container = document.getElementById('pg-viewer');
+    this.updateDimensions();
+    
+    const MutObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+    if (!MutObserver) {
+      return;
+    }
+    
+    this.observer = new MutObserver(this.updateDimensions);
+    this.observer.observe(this.getContainer());
+  }
+
+  componentWillUnmount() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+  
+  getContainer = () => {
+    return document.getElementById('pg-viewer');
+  }
+  
+  updateDimensions = () => {
+    const container = this.getContainer()
     const height = container ? container.clientHeight : 0;
     const width = container ? container.clientWidth : 0;
-    this.setState({ height, width });
-  }
+    
+    // Only rerender if state changes
+    if (this.state.width !== width || this.state.height !== height) {
+      this.setState({ width, height });
+    }
+  };
 
   getDriver() {
     switch (this.props.fileType) {
@@ -71,7 +98,7 @@ class FileViewer extends Component {
   }
 
   render() {
-    const Driver = this.getDriver(this.props);
+    const Driver = this.getDriver();
     return (
       <div className="pg-viewer-wrapper">
         <div className="pg-viewer" id="pg-viewer">
