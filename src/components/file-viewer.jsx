@@ -5,17 +5,23 @@ import PropTypes from 'prop-types';
 import 'styles/main.scss';
 import withFetching from './fetch-wrapper';
 
-import {
-  CsvViewer,
-  DocxViewer,
-  VideoViewer,
-  XlsxViewer,
-  XBimViewer,
-  PDFViewer,
-  UnsupportedViewer,
-  PhotoViewerWrapper,
-  AudioViewer,
-} from './drivers';
+import loadable from '@loadable/component';
+
+const CsvViewer = loadable(() => import('./drivers/csv-viewer'));
+const Photo360Viewer = loadable(() => import('./drivers/photo360-viewer'));
+const PDFViewer = loadable(() => import('./drivers/pdf-viewer'));
+const DocxViewer = loadable(() => import('./drivers/docx-viewer'));
+const VideoViewer = loadable(() => import('./drivers/video-viewer'));
+const XlsxViewer = loadable(() => import('./drivers/xlsx-viewer'));
+const XBimViewer = loadable(() => import('./drivers/xbim-viewer'));
+const UnsupportedViewer = loadable(() =>
+  import('./drivers/unsupported-viewer'),
+);
+const PhotoViewer = loadable(() => import('./drivers/photo-viewer'));
+const PhotoViewerWrapper = loadable(() =>
+  import('./drivers/photo-viewer-wrapper'),
+);
+const AudioViewer = loadable(() => import('./drivers/audio-viewer'));
 
 class FileViewer extends Component {
   constructor(props) {
@@ -38,7 +44,9 @@ class FileViewer extends Component {
         return withFetching(CsvViewer, this.props);
       }
       case 'xlsx': {
-        const newProps = Object.assign({}, this.props, { responseType: 'arraybuffer' });
+        const newProps = Object.assign({}, this.props, {
+          responseType: 'arraybuffer',
+        });
         return withFetching(XlsxViewer, newProps);
       }
       case 'jpg':
@@ -75,7 +83,11 @@ class FileViewer extends Component {
     return (
       <div className="pg-viewer-wrapper">
         <div className="pg-viewer" id="pg-viewer">
-          <Driver {...this.props} width={this.state.width} height={this.state.height} />
+          <Driver
+            {...this.props}
+            width={this.state.width}
+            height={this.state.height}
+          />
         </div>
       </div>
     );
