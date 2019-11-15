@@ -2,20 +2,11 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import 'styles/main.scss';
 import withFetching from './fetch-wrapper';
 
-import {
-  CsvViewer,
-  DocxViewer,
-  VideoViewer,
-  XlsxViewer,
-  XBimViewer,
-  PDFViewer,
-  UnsupportedViewer,
-  PhotoViewerWrapper,
-  AudioViewer,
-} from './drivers';
+import { CsvViewer, DocxViewer, VideoViewer, XlsxViewer, XBimViewer, PDFViewer, UnsupportedViewer, PhotoViewerWrapper, AudioViewer } from './drivers';
 
 class FileViewer extends Component {
   constructor(props) {
@@ -29,7 +20,10 @@ class FileViewer extends Component {
     const container = document.getElementById('pg-viewer');
     const height = container ? container.clientHeight : 0;
     const width = container ? container.clientWidth : 0;
-    this.setState({ height, width });
+    this.setState({
+      height,
+      width,
+    });
   }
 
   getDriver() {
@@ -38,7 +32,9 @@ class FileViewer extends Component {
         return withFetching(CsvViewer, this.props);
       }
       case 'xlsx': {
-        const newProps = Object.assign({}, this.props, { responseType: 'arraybuffer' });
+        const newProps = Object.assign({}, this.props, {
+          responseType: 'arraybuffer',
+        });
         return withFetching(XlsxViewer, newProps);
       }
       case 'jpg':
@@ -71,11 +67,12 @@ class FileViewer extends Component {
   }
 
   render() {
-    const Driver = this.getDriver(this.props);
+    const { wrapperStyle, wrapperClassName, style, className, ...rest } = this.props;
+    const Driver = this.getDriver();
     return (
-      <div className="pg-viewer-wrapper">
-        <div className="pg-viewer" id="pg-viewer">
-          <Driver {...this.props} width={this.state.width} height={this.state.height} />
+      <div style={wrapperStyle} className={classNames('pg-viewer-wrapper', wrapperClassName)}>
+        <div style={style} className={classNames('pg-viewer', className)} id="pg-viewer">
+          <Driver {...rest} width={this.state.width} height={this.state.height} />
         </div>
       </div>
     );

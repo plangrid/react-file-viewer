@@ -8,7 +8,7 @@ import Photo360Viewer from './photo360-viewer';
 import Loading from '../loading';
 
 function getPhotoDriver(width, height, fileType) {
-  if (fileType === 'jpg' && window.Math.abs((width / height) - 2) <= 0.01) {
+  if (fileType === 'jpg' && Math.abs((width / height) - 2) <= 0.01) {
     return Photo360Viewer;
   }
   return PhotoViewer;

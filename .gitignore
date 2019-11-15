@@ -10,6 +10,5 @@ node_modules
 .npm
 
 # build folder
-dist
 lib
 .idea
