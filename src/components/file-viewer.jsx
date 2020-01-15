@@ -33,6 +33,9 @@ class FileViewer extends Component {
   }
 
   getDriver() {
+    if (this.props.drivers[this.props.fileType]) {
+      return this.props.drivers[this.props.fileType];
+    }
     switch (this.props.fileType) {
       case 'csv': {
         return withFetching(CsvViewer, this.props);
@@ -94,6 +97,7 @@ FileViewer.defaultProps = {
   onError: () => null,
   errorComponent: null,
   unsupportedComponent: null,
+  drivers: {},
 };
 
 export default FileViewer;
