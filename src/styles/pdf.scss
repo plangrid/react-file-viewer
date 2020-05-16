@@ -1,0 +1,29 @@
+.preview-file .pg-viewer-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-y: inherit !important;
+  overflow: inherit !important;
+}
+
+.pg-viewer-wrapper {
+  .react-pdf__Document {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .react-pdf__Page {
+    max-width: calc(100% - 2em);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    margin: 1em;
+    canvas {
+      max-width: 100%;
+      height: auto !important;
+    }
+  }
+
+  .react-pdf__message {
+    padding: 20px;
+  }
+}
