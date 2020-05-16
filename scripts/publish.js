@@ -25,7 +25,7 @@ inquirer.prompt([
     default: 0,
     choices: ['Abort', 'patch', 'minor', 'major']
   }
-]).then(function(answers) {
+]).then(function (answers) {
   const answer = answers.publish;
 
   if (answer === 'Abort') {
