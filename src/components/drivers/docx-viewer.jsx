@@ -17,24 +17,25 @@ export default class extends Component {
         mammoth.convertToHtml(
           { arrayBuffer: jsonFile.response },
           { includeDefaultStyleMap: true },
-        )
-        .then((result) => {
+        ).then((result) => {
           const docEl = document.createElement('div');
           docEl.className = 'document-container';
           docEl.innerHTML = result.value;
-          document.getElementById('docx').innerHTML = docEl.outerHTML;
-        })
-        .catch((a) => {
+          document.getElementById(this.getElementId()).innerHTML = docEl.outerHTML;
+        }).catch((a) => {
           console.log('alexei: something went wrong', a);
-        })
-        .done();
+        }).done();
       }
     };
   }
 
+  getElementId() {
+    return `docx-${this.props.uniqIdentifier}`;
+  }
+
   render() {
     return (
-      <div id="docx">
+      <div id={this.getElementId()}>
         <Loading />
       </div>);
   }

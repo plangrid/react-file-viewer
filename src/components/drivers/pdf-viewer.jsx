@@ -67,7 +67,7 @@ export class PDFPage extends React.Component {
           <VisibilitySensor onChange={this.onChange} partialVisibility >
             <canvas ref={node => this.canvas = node} width="670" height="870" />
           </VisibilitySensor>
-            )
+        )
         }
       </div>
     );
@@ -91,10 +91,10 @@ export default class PDFDriver extends React.Component {
 
   componentDidMount() {
     const { filePath } = this.props;
-    let loadingTask = PDFJS.getDocument(filePath);
+    const loadingTask = PDFJS.getDocument(filePath);
     loadingTask.onProgress = this.progressCallback.bind(this);
     loadingTask.promise.then((pdf) => {
-      this.setState({ pdf, containerWidth: this.container.offsetWidth });
+      this.setState({ pdf, containerWidth: this.container ? this.container.offsetWidth : 0 });
     });
   }
 

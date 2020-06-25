@@ -28,7 +28,7 @@ export default class extends Component {
   }
 
   componentDidMount() {
-    const el = document.getElementById('360-photo');
+    const el = document.getElementById(this.getElementId());
     const positionInfo = el.getBoundingClientRect();
     const height = positionInfo.height;
     const width = positionInfo.width;
@@ -89,6 +89,9 @@ export default class extends Component {
     });
   }
 
+  getElementId() {
+    return `360-photo-${this.props.uniqIdentifier}`;
+  }
 
   updateView() {
     const latitude = Math.max(-85, Math.min(85, this.state.latitude));
@@ -106,7 +109,7 @@ export default class extends Component {
   render() {
     return (
       <div
-        id="360-photo"
+        id={this.getElementId()}
         className="photo360"
         onMouseDown={this.onMouseDown}
         onMouseMove={this.onMouseMove}
