@@ -1,0 +1,44 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["import", "jsx-a11y", "react", "security"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "webpack": "webpack.config.js"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier",
+    "plugin:security/recommended"
+  ],
+  "globals": {
+    "XMLHttpRequest": true,
+    "XDomainRequest": true,
+    "document": true,
+    "window": true
+  },
+  "rules": {
+    "react/prop-types": [0, { "customValidators": ["skipUndeclared"] }]
+  }
+}

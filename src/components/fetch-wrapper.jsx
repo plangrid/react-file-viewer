@@ -1,92 +1,91 @@
 // Copyright (c) 2017 PlanGrid, Inc.
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import Error from './error';
-import Loading from './loading';
+import Error from './error'
+import Loading from './loading'
 
 function withFetching(WrappedComponent, props) {
-  return class extends Component {
-    constructor(props) { // eslint-disable-line no-shadow
-      super(props);
-      this.state = {};
-      this.xhr = this.createRequest(props.filePath);
+  return class FetchComponent extends Component {
+    constructor(props) {
+      // eslint-disable-line no-shadow
+      super(props)
+      this.state = {}
+      this.xhr = this.createRequest(props.filePath)
     }
 
     componentDidMount() {
       try {
-        this.fetch();
+        this.fetch()
       } catch (e) {
         if (this.props.onError) {
-          this.props.onError(e);
+          this.props.onError(e)
         }
-        this.setState({ error: 'fetch error' });
+        this.setState({ error: 'fetch error' })
       }
     }
 
     componentWillUnmount() {
-      this.abort();
+      this.abort()
     }
 
     createRequest(path) {
-      let xhr = new XMLHttpRequest();
+      let xhr = new XMLHttpRequest()
 
       if ('withCredentials' in xhr) {
         // XHR for Chrome/Firefox/Opera/Safari.
-        xhr.open('GET', path, true);
+        xhr.open('GET', path, true)
       } else if (typeof XDomainRequest !== 'undefined') {
         // XDomainRequest for IE.
-        xhr = new XDomainRequest();
-        xhr.open('GET', path);
+        xhr = new XDomainRequest()
+        xhr.open('GET', path)
       } else {
         // CORS not supported.
-        xhr = null;
-        return null;
+        xhr = null
+        return null
       }
       if (props.responseType) {
-        xhr.responseType = props.responseType;
+        xhr.responseType = props.responseType
       }
 
       xhr.onload = () => {
         if (xhr.status >= 400) {
-          this.setState({ error: `fetch error with status ${xhr.status}` });
-          return;
+          this.setState({ error: `fetch error with status ${xhr.status}` })
+          return
         }
-        const resp = props.responseType ? xhr.response : xhr.responseText;
+        const resp = props.responseType ? xhr.response : xhr.responseText
 
-        this.setState({ data: resp });
-      };
+        this.setState({ data: resp })
+      }
 
-      return xhr;
+      return xhr
     }
 
     fetch() {
-      this.xhr.send();
+      this.xhr.send()
     }
 
     abort() {
       if (this.xhr) {
-        this.xhr.abort();
+        this.xhr.abort()
       }
     }
 
     render() {
       if (!this.xhr) {
-        return <h1>CORS not supported..</h1>;
+        return <h1>CORS not supported..</h1>
       }
 
       if (this.state.error) {
-        return <Error {...this.props} error={this.state.error} />;
+        return <Error {...this.props} error={this.state.error} />
       }
 
       if (this.state.data) {
-        return <WrappedComponent data={this.state.data} {...this.props} />;
+        return <WrappedComponent data={this.state.data} {...this.props} />
       }
-      return (
-        <Loading />
-      );
+      return <Loading />
     }
-  };
+  }
 }
 
-export default withFetching;
+export default withFetching
