@@ -1,22 +1,22 @@
-
 # react-file-viewer
 
 Extendable file viewer for web
 
+Forked from https://github.com/plangrid/react-file-viewer
+
 ## Supported file formats:
 
- - Images: png, jpeg, gif, bmp, including 360-degree images
- - pdf
- - csv
- - xslx
- - docx
- - Video: mp4, webm
- - Audio: mp3
-
+- Images: png, jpeg, gif, bmp, including 360-degree images
+- pdf
+- csv
+- xslx
+- docx
+- Video: mp4, webm
+- Audio: mp3
 
 ## Usage
 
-Note this module works best with react 16+.  If you are using React < 16 you will likely need to use version 0.5. `npm install react-file-viewer@0.5.0`.
+Note this module works best with react 16+. If you are using React < 16 you will likely need to use version 0.5. `npm install react-file-viewer@0.5.0`.
 
 There is one main React component, `FileViewer`, that takes the following props:
 
@@ -116,4 +116,7 @@ case 'rtf':
 
 ## Roadmap
 
-- Remove ignored linting rules and fix them
+- [ ] Remove ignored linting rules and fix them
+- [ ] Convert CSS to CSS modules
+- [ ] Add support for custom controls components
+- [ ] Convert to TypeScript
