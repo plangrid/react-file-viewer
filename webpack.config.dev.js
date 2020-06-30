@@ -1,13 +1,15 @@
 // Copyright (c) 2017 PlanGrid, Inc.
 
-const path = require('path');
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
+const path = require('path')
+const webpack = require('webpack')
+const autoprefixer = require('autoprefixer')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   devtool: 'cheap-module-source-map',
+
+  mode: 'development',
 
   entry: {
     app: [
@@ -23,7 +25,11 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'example_files'), 'node_modules'],
+    modules: [
+      path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'example_files'),
+      'node_modules',
+    ],
     extensions: ['.js', '.json', '.jsx'],
   },
 
@@ -50,15 +56,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: () => [
-                autoprefixer({
-                  browsers: [
-                    '>1%',
-                    'last 4 versions',
-                    'not ie < 9',
-                  ],
-                }),
-              ],
+              plugins: () => [autoprefixer()],
             },
           },
           {
@@ -73,7 +71,21 @@ module.exports = {
         enforce: 'pre',
       },
       {
-        test: [/\.wexbim$/, /\.jpg$/, /\.docx$/, /\.csv$/, /\.mp4$/, /\.xlsx$/, /\.doc$/, /\.avi$/, /\.webm$/, /\.mov$/, /\.mp3$/, /\.rtf$/, /\.pdf$/],
+        test: [
+          /\.wexbim$/,
+          /\.jpg$/,
+          /\.docx$/,
+          /\.csv$/,
+          /\.mp4$/,
+          /\.xlsx$/,
+          /\.doc$/,
+          /\.avi$/,
+          /\.webm$/,
+          /\.mov$/,
+          /\.mp3$/,
+          /\.rtf$/,
+          /\.pdf$/,
+        ],
         loader: 'file-loader',
       },
       {
@@ -93,4 +105,4 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
-};
+}

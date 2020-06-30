@@ -55,6 +55,7 @@
     "eslint": "^7.3.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-import-resolver-webpack": "^0.12.2",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.0.1",
@@ -81,7 +82,7 @@
   "dependencies": {
     "comma-separated-values": "^3.6.4",
     "mammoth": "1.4.9",
-    "pdfjs-dist": "2.4.456",
+    "pdfjs-dist": "1.8.357",
     "prop-types": "^15.5.10",
     "react-data-grid": "^7.0.0-canary.16",
     "react-visibility-sensor": "^5.0.2",
