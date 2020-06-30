@@ -164,10 +164,17 @@ export default class PDFDriver extends React.Component {
   }
 
   render() {
+    const { renderControls } = this.props
+
     return (
       <div className="pdf-viewer-container">
-        <div className="pdf-viewer" ref={(node) => (this.container = node)}>
-          <div className="pdf-controlls-container">
+        {renderControls ? (
+          renderControls({
+            handleZoomIn: this.increaseZoom,
+            handleZoomOut: this.reduceZoom,
+          })
+        ) : (
+          <div className="pdf-controls-container">
             <button
               type="button"
               className="view-control"
@@ -187,6 +194,9 @@ export default class PDFDriver extends React.Component {
               <i className="zoom-out" />
             </button>
           </div>
+        )}
+
+        <div className="pdf-viewer" ref={(node) => (this.container = node)}>
           {this.renderLoading()}
           {this.renderPages()}
         </div>
