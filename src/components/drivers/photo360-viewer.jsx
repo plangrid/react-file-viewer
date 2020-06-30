@@ -1,4 +1,5 @@
-// Copyright (c) 2017 PlanGrid, Inc.
+// Original work Copyright (c) 2017 PlanGrid, Inc.
+// Modified work Copyright 2020, Trussworks, Inc.
 
 import React, { Component } from 'react'
 import * as THREE from 'three'

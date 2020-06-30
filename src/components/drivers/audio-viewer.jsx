@@ -1,3 +1,5 @@
+// Copyright (c) 2017 PlanGrid, Inc.
+
 // TODO
 /* eslint-disable jsx-a11y/media-has-caption */
 
