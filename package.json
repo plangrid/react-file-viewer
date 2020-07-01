@@ -17,8 +17,9 @@
     "test:watch": "jest --watch --env=jsdom",
     "tag-and-publish": "node ./scripts/publish.js"
   },
-  "author": "Suzanne Rozier <suz@truss.works>",
   "contributors": [
+    "Suzanne Rozier <suz@truss.works>",
+    "PlanGrid <opensource@plangrid.com>",
     {
       "name": "Alexei Schiopu",
       "email": "alexxschiopu@gmail.com",
