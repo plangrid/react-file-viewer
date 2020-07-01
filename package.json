@@ -16,7 +16,7 @@
     "test": "jest --env=jsdom ",
     "test:watch": "jest --watch --env=jsdom",
     "tag-and-publish": "node ./scripts/publish.js",
-    "prepare": "build"
+    "prepare": "yarn build"
   },
   "author": "Suzanne Rozier <suz@truss.works>",
   "contributors": [
