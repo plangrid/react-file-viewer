@@ -81,14 +81,9 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "comma-separated-values": "^3.6.4",
-    "mammoth": "1.4.9",
     "pdfjs-dist": "1.8.357",
     "prop-types": "^15.5.10",
-    "react-data-grid": "^7.0.0-canary.16",
-    "react-visibility-sensor": "^5.0.2",
-    "three": "0.118.3",
-    "xlsx": "^0.16.3"
+    "react-visibility-sensor": "^5.0.2"
   },
   "peerDependencies": {
     "react": "^16.6.3",
