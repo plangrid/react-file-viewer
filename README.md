@@ -122,3 +122,4 @@ case 'rtf':
 - [ ] Convert to TypeScript
 - [ ] Add caching to fetch wrapper?
 - [ ] Fix re-render FileViewer if file changes
+- [ ] Code split drivers to reduce bundle size

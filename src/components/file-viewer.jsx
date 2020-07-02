@@ -1,19 +1,21 @@
 // Copyright (c) 2017 PlanGrid, Inc.
 
-import React, { lazy, Suspense, Component } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import 'styles/main.scss'
 import withFetching from './fetch-wrapper'
 
-const CsvViewer = lazy(() => import('./drivers/csv-viewer'))
-const DocxViewer = lazy(() => import('./drivers/docx-viewer'))
-const VideoViewer = lazy(() => import('./drivers/video-viewer'))
-const XlsxViewer = lazy(() => import('./drivers/xlsx-viewer'))
-const XBimViewer = lazy(() => import('./drivers/xbim-viewer'))
-const PDFViewer = lazy(() => import('./drivers/pdf-viewer'))
-const UnsupportedViewer = lazy(() => import('./drivers/unsupported-viewer'))
-const PhotoViewerWrapper = lazy(() => import('./drivers/photo-viewer-wrapper'))
-const AudioViewer = lazy(() => import('./drivers/audio-viewer'))
+import {
+  CsvViewer,
+  DocxViewer,
+  VideoViewer,
+  XlsxViewer,
+  XBimViewer,
+  PDFViewer,
+  UnsupportedViewer,
+  PhotoViewerWrapper,
+  AudioViewer,
+} from './drivers'
 
 class FileViewer extends Component {
   constructor(props) {
@@ -72,17 +74,14 @@ class FileViewer extends Component {
 
   render() {
     const Driver = this.getDriver(this.props)
-    const LoadingFallback = () => <div>Loading file viewer...</div>
     return (
       <div className="pg-viewer-wrapper">
         <div className="pg-viewer" id="pg-viewer">
-          <Suspense fallback={<LoadingFallback />}>
-            <Driver
-              {...this.props}
-              width={this.state.width}
-              height={this.state.height}
-            />
-          </Suspense>
+          <Driver
+            {...this.props}
+            width={this.state.width}
+            height={this.state.height}
+          />
         </div>
       </div>
     )
