@@ -1,11 +1,11 @@
 // Copyright (c) 2017 PlanGrid, Inc.
 
-import React, { Suspense, Component } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import 'styles/main.scss'
 
 import UnsupportedViewer from './drivers/unsupported-viewer'
-const PDFViewer = React.lazy(() => import('./drivers/pdf-viewer'))
+import PDFViewer from './drivers/pdf-viewer'
 
 class FileViewer extends Component {
   constructor(props) {
@@ -38,13 +38,11 @@ class FileViewer extends Component {
     return (
       <div className="pg-viewer-wrapper">
         <div className="pg-viewer" id="pg-viewer">
-          <Suspense fallback={<div>Loading...</div>}>
-            <Driver
-              {...this.props}
-              width={this.state.width}
-              height={this.state.height}
-            />
-          </Suspense>
+          <Driver
+            {...this.props}
+            width={this.state.width}
+            height={this.state.height}
+          />
         </div>
       </div>
     )
