@@ -15,3 +15,5 @@ node_modules
 # dist # TEMPORARY until published to npm
 lib
 .idea
+
+.DS_Store

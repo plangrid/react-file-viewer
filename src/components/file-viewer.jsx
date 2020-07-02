@@ -1,21 +1,11 @@
 // Copyright (c) 2017 PlanGrid, Inc.
 
-import React, { Component } from 'react'
+import React, { Suspense, Component } from 'react'
 import PropTypes from 'prop-types'
 import 'styles/main.scss'
-import withFetching from './fetch-wrapper'
 
-import {
-  CsvViewer,
-  DocxViewer,
-  VideoViewer,
-  XlsxViewer,
-  XBimViewer,
-  PDFViewer,
-  UnsupportedViewer,
-  PhotoViewerWrapper,
-  AudioViewer,
-} from './drivers'
+import UnsupportedViewer from './drivers/unsupported-viewer'
+const PDFViewer = React.lazy(() => import('./drivers/pdf-viewer'))
 
 class FileViewer extends Component {
   constructor(props) {
@@ -34,37 +24,8 @@ class FileViewer extends Component {
 
   getDriver() {
     switch (this.props.fileType) {
-      case 'csv': {
-        return withFetching(CsvViewer, this.props)
-      }
-      case 'xlsx': {
-        const newProps = Object.assign({}, this.props, {
-          responseType: 'arraybuffer',
-        })
-        return withFetching(XlsxViewer, newProps)
-      }
-      case 'jpg':
-      case 'jpeg':
-      case 'gif':
-      case 'bmp':
-      case 'png': {
-        return PhotoViewerWrapper
-      }
       case 'pdf': {
         return PDFViewer
-      }
-      case 'docx': {
-        return DocxViewer
-      }
-      case 'mp3': {
-        return AudioViewer
-      }
-      case 'webm':
-      case 'mp4': {
-        return VideoViewer
-      }
-      case 'wexbim': {
-        return XBimViewer
       }
       default: {
         return UnsupportedViewer
@@ -77,11 +38,13 @@ class FileViewer extends Component {
     return (
       <div className="pg-viewer-wrapper">
         <div className="pg-viewer" id="pg-viewer">
-          <Driver
-            {...this.props}
-            width={this.state.width}
-            height={this.state.height}
-          />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Driver
+              {...this.props}
+              width={this.state.width}
+              height={this.state.height}
+            />
+          </Suspense>
         </div>
       </div>
     )
