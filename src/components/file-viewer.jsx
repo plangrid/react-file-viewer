@@ -88,6 +88,8 @@ class FileViewer extends Component {
   }
 }
 
+FileViewer.displayName = 'FileViewer'
+
 FileViewer.propTypes = {
   fileType: PropTypes.string.isRequired,
   filePath: PropTypes.string.isRequired,
