@@ -120,3 +120,5 @@ case 'rtf':
 - [ ] Convert CSS to CSS modules
 - [ ] Add support for custom controls components
 - [ ] Convert to TypeScript
+- [ ] Add caching to fetch wrapper?
+- [ ] Fix re-render FileViewer if file changes

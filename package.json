@@ -15,8 +15,7 @@
     "lint": "eslint --ext js,jsx src",
     "test": "jest --env=jsdom ",
     "test:watch": "jest --watch --env=jsdom",
-    "tag-and-publish": "node ./scripts/publish.js",
-    "prepare": "yarn build"
+    "tag-and-publish": "node ./scripts/publish.js"
   },
   "author": "Suzanne Rozier <suz@truss.works>",
   "contributors": [
