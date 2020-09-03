@@ -29,9 +29,9 @@ class FileViewer extends Component {
       case 'pdf': {
         return PDFViewer
       }
-      case 'gif':
       case 'jpg':
       case 'jpeg':
+      case 'gif':
       case 'png': {
         return PhotoViewerWrapper
       }
