@@ -1,41 +1,45 @@
 // Copyright (c) 2017 PlanGrid, Inc.
 
-import React, { Component } from 'react';
-import mammoth from 'mammoth';
+import React, { Component } from 'react'
+import mammoth from 'mammoth/mammoth.browser.min.js'
 
-import 'styles/docx.scss';
-import Loading from '../loading';
+import 'styles/docx.scss'
+import Loading from '../loading'
 
-export default class extends Component {
+class DocXViewer extends Component {
   componentDidMount() {
-    const jsonFile = new XMLHttpRequest();
-    jsonFile.open('GET', this.props.filePath, true);
-    jsonFile.send();
-    jsonFile.responseType = 'arraybuffer';
+    const jsonFile = new XMLHttpRequest()
+    jsonFile.open('GET', this.props.filePath, true)
+    jsonFile.send()
+    jsonFile.responseType = 'arraybuffer'
     jsonFile.onreadystatechange = () => {
       if (jsonFile.readyState === 4 && jsonFile.status === 200) {
-        mammoth.convertToHtml(
-          { arrayBuffer: jsonFile.response },
-          { includeDefaultStyleMap: true },
-        )
-        .then((result) => {
-          const docEl = document.createElement('div');
-          docEl.className = 'document-container';
-          docEl.innerHTML = result.value;
-          document.getElementById('docx').innerHTML = docEl.outerHTML;
-        })
-        .catch((a) => {
-          console.log('alexei: something went wrong', a);
-        })
-        .done();
+        mammoth
+          .convertToHtml(
+            { arrayBuffer: jsonFile.response },
+            { includeDefaultStyleMap: true }
+          )
+          .then((result) => {
+            const docEl = document.createElement('div')
+            docEl.className = 'document-container'
+            docEl.innerHTML = result.value
+            document.getElementById('docx').innerHTML = docEl.outerHTML
+          })
+          .catch((a) => {
+            console.log('alexei: something went wrong', a)
+          })
+          .done()
       }
-    };
+    }
   }
 
   render() {
     return (
       <div id="docx">
         <Loading />
-      </div>);
+      </div>
+    )
   }
 }
+
+export default DocXViewer

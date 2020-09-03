@@ -1,22 +1,22 @@
-
 # react-file-viewer
 
 Extendable file viewer for web
 
+Forked from https://github.com/plangrid/react-file-viewer
+
 ## Supported file formats:
 
- - Images: png, jpeg, gif, bmp, including 360-degree images
- - pdf
- - csv
- - xslx
- - docx
- - Video: mp4, webm
- - Audio: mp3
-
+- Images: png, jpeg, gif, bmp, including 360-degree images
+- pdf
+- csv
+- xslx
+- docx
+- Video: mp4, webm
+- Audio: mp3
 
 ## Usage
 
-Note this module works best with react 16+.  If you are using React < 16 you will likely need to use version 0.5. `npm install react-file-viewer@0.5.0`.
+Note this module works best with react 16+. If you are using React < 16 you will likely need to use version 0.5. `npm install react-file-viewer@0.5.0`.
 
 There is one main React component, `FileViewer`, that takes the following props:
 
@@ -72,7 +72,7 @@ purposes. It is by default served via webpack-dev-server.
 
 ### To start demo app
 
-`make start` will start the demo app served by webpack-dev-server
+`yarn start` will start the demo app served by webpack-dev-server
 
 ### Testing
 
@@ -81,7 +81,7 @@ Tests use Jest and Enzyme.
 Run tests with:
 
 ```
-make test
+yarn test:watch
 ```
 
 This starts Jest in watch mode. To run a particular test file, while in watch mode
@@ -92,12 +92,12 @@ to fail, snapshot files need to be updated (stored in `__snapshots__` directorie
 To do this run:
 
 ```
-npm run jest --updateSnapshot
+yarn jest --updateSnapshot
 ```
 
 ### To run the linter
 
-`make lint`
+`yarn lint`
 
 ### Extending the file viewer
 
@@ -116,4 +116,7 @@ case 'rtf':
 
 ## Roadmap
 
-- Remove ignored linting rules and fix them
+- [ ] Remove ignored linting rules and fix them
+- [ ] Convert CSS to CSS modules
+- [ ] Add support for custom controls components
+- [ ] Convert to TypeScript

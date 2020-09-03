@@ -1,24 +1,25 @@
 {
-  "name": "react-file-viewer",
+  "name": "@trussworks/react-file-viewer",
   "version": "1.2.1",
   "description": "Extendable file viewer for web",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/plangrid/react-file-viewer.git"
+    "url": "git+https://github.com/trussworks/react-file-viewer.git"
   },
   "scripts": {
     "dev": "webpack -d --watch",
     "build": "webpack -p --progress",
     "start": "node ./scripts/start.js",
-    "lint": "node_modules/.bin/eslint ./src/**/*.jsx",
-    "test": "node_modules/.bin/jest --env=jsdom --watch",
-    "jest": "node_modules/.bin/jest --env=jsdom",
+    "lint": "eslint --ext js,jsx src",
+    "test": "jest --env=jsdom ",
+    "test:watch": "jest --watch --env=jsdom",
     "tag-and-publish": "node ./scripts/publish.js"
   },
-  "author": "PlanGrid <opensource@plangrid.com>",
   "contributors": [
+    "Suzanne Rozier <suz@truss.works>",
+    "PlanGrid <opensource@plangrid.com>",
     {
       "name": "Alexei Schiopu",
       "email": "alexxschiopu@gmail.com",
@@ -35,57 +36,59 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/plangrid/react-file-viewer/issues"
+    "url": "https://github.com/trussworks/react-file-viewer/issues"
   },
-  "homepage": "https://github.com/plangrid/react-file-viewer#readme",
+  "homepage": "https://github.com/trussworks/react-file-viewer#readme",
   "devDependencies": {
-    "autoprefixer": "^7.1.0",
-    "babel-core": "^6.24.1",
-    "babel-jest": "^20.0.3",
-    "babel-loader": "^7.0.0",
-    "babel-plugin-transform-class-properties": "^6.19.0",
-    "babel-plugin-transform-es2015-classes": "^6.18.0",
-    "babel-plugin-transform-es2015-object-super": "^6.6.5",
-    "babel-plugin-transform-runtime": "6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "6.5.0",
-    "babel-runtime": "^6.20.0",
-    "chalk": "^1.1.3",
-    "css-loader": "^0.28.1",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-export-default-from": "^7.10.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.1",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.8.4",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.0.3",
+    "babel-loader": "^8.0.0",
+    "chalk": "^4.1.0",
+    "css-loader": "^3.6.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-import-resolver-webpack": "^0.8.1",
-    "eslint-loader": "^1.7.1",
+    "eslint": "^7.3.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-webpack": "^0.12.2",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.0.1",
-    "file-loader": "^0.11.1",
-    "html-webpack-plugin": "^2.28.0",
-    "inquirer": "^3.0.6",
-    "jest": "^23.6.0",
+    "eslint-plugin-security": "^1.4.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.2.5",
+    "inquirer": "^7.2.0",
+    "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
     "node-sass": "^4.5.3",
-    "postcss-loader": "^2.0.5",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^2.0.5",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-test-renderer": "^16.6.3",
-    "sass-loader": "^6.0.5",
-    "style-loader": "^0.17.0",
-    "url-loader": "^0.5.8",
-    "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.4.5"
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "comma-separated-values": "^3.6.4",
-    "mammoth": "1.3.6",
+    "mammoth": "1.4.9",
     "pdfjs-dist": "1.8.357",
     "prop-types": "^15.5.10",
-    "react-data-grid": "^5.0.5",
+    "react-data-grid": "^7.0.0-canary.16",
     "react-visibility-sensor": "^5.0.2",
-    "three": "0.85.2",
-    "xlsx": "^0.10.1"
+    "three": "0.118.3",
+    "xlsx": "^0.16.3"
   },
   "peerDependencies": {
     "react": "^16.6.3",
@@ -93,7 +96,7 @@
   },
   "jest": {
     "testPathIgnorePatterns": [
-      "<rootDir>[/\\\\](build|node_modules|scripts|example_files)[/\\\\]"
+      "<rootDir>/(build|scripts|example_files)/"
     ],
     "testEnvironment": "node",
     "transform": {
@@ -102,23 +105,30 @@
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+      "node_modules/?!(react-data-grid|mammoth)"
     ],
     "moduleDirectories": [
       "src",
       "node_modules"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/tests/setupTests.js"
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setupTests.js"
+    ]
   },
-  "eslintConfig": {
-    "extends": "airbnb",
-    "plugins": [
-      "import"
-    ],
-    "settings": {
-      "import/resolver": {
-        "webpack": "webpack.config.js"
-      }
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
-  }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,md}": [
+      "prettier --write",
+      "eslint"
+    ]
+  },
+  "browserslist": [
+    ">1%",
+    "last 4 versions",
+    "not ie < 11"
+  ]
 }

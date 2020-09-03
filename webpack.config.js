@@ -1,10 +1,11 @@
-// Copyright (c) 2017 PlanGrid, Inc.
+// Original work Copyright (c) 2017 PlanGrid, Inc.
+// Modified work Copyright 2020, Trussworks, Inc.
 
-const path = require('path');
-const autoprefixer = require('autoprefixer');
+const path = require('path')
+const autoprefixer = require('autoprefixer')
 
-const BUILD_DIR = path.resolve(__dirname, './dist');
-const APP_DIR = path.resolve(__dirname, './src');
+const BUILD_DIR = path.resolve(__dirname, './dist')
+const APP_DIR = path.resolve(__dirname, './src')
 
 const config = {
   entry: `${APP_DIR}/components`,
@@ -59,15 +60,7 @@ const config = {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: () => [
-                autoprefixer({
-                  browsers: [
-                    '>1%',
-                    'last 4 versions',
-                    'not ie < 9',
-                  ],
-                }),
-              ],
+              plugins: () => [autoprefixer()],
             },
           },
           {
@@ -84,6 +77,6 @@ const config = {
       },
     ],
   },
-};
+}
 
-module.exports = config;
+module.exports = config
