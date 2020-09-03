@@ -6,6 +6,7 @@ import 'styles/main.scss'
 
 import UnsupportedViewer from './drivers/unsupported-viewer'
 import PDFViewer from './drivers/pdf-viewer'
+import PhotoViewerWrapper from './drivers/photo-viewer-wrapper'
 
 class FileViewer extends Component {
   constructor(props) {
@@ -27,6 +28,11 @@ class FileViewer extends Component {
       case 'pdf': {
         return PDFViewer
       }
+      case 'gif':
+      case 'jpg':
+      case 'jpeg':
+      case 'png':
+        return PhotoViewerWrapper
       default: {
         return UnsupportedViewer
       }
