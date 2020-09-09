@@ -12,6 +12,8 @@ node_modules
 .npm
 
 # build folder
-dist
+# dist # TEMPORARY until published to npm
 lib
 .idea
+
+.DS_Store

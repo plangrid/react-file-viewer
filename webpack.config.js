@@ -7,6 +7,9 @@ const autoprefixer = require('autoprefixer')
 const BUILD_DIR = path.resolve(__dirname, './dist')
 const APP_DIR = path.resolve(__dirname, './src')
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
+
 const config = {
   entry: `${APP_DIR}/components`,
   output: {
@@ -19,6 +22,7 @@ const config = {
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
     extensions: ['.js', '.jsx', '.json'],
   },
+  plugins: [new BundleAnalyzerPlugin()],
   externals: [
     {
       react: {
