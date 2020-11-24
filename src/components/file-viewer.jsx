@@ -23,12 +23,14 @@ class FileViewer extends Component {
     this.state = {
       loading: true,
     };
+    this.Driver
   }
 
   componentDidMount() {
     const container = document.getElementById('pg-viewer');
     const height = container ? container.clientHeight : 0;
     const width = container ? container.clientWidth : 0;
+    this.Driver = this.getDriver(this.props);
     this.setState({ height, width });
   }
 
@@ -71,11 +73,11 @@ class FileViewer extends Component {
   }
 
   render() {
-    const Driver = this.getDriver(this.props);
+    let Driver = this.Driver
     return (
       <div className="pg-viewer-wrapper">
         <div className="pg-viewer" id="pg-viewer">
-          <Driver {...this.props} width={this.state.width} height={this.state.height} />
+          {Driver ? <Driver {...this.props} width={this.state.width} height={this.state.height} /> : null}
         </div>
       </div>
     );
