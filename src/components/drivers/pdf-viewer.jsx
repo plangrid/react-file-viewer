@@ -60,14 +60,13 @@ export class PDFPage extends React.Component {
   }
 
   render() {
-    const { index } = this.props;
     return (
-      <div key={`page-${index}`} className="pdf-canvas">
+      <div className="pdf-canvas">
         {this.props.disableVisibilityCheck ? <canvas ref={node => this.canvas = node} width="670" height="870" /> : (
           <VisibilitySensor onChange={this.onChange} partialVisibility >
             <canvas ref={node => this.canvas = node} width="670" height="870" />
           </VisibilitySensor>
-            )
+          )
         }
       </div>
     );
@@ -127,6 +126,7 @@ export default class PDFDriver extends React.Component {
     const pages = Array.apply(null, { length: pdf.numPages });
     return pages.map((v, i) => (
       (<PDFPage
+        key={`page-${i + 1}`}
         index={i + 1}
         pdf={pdf}
         containerWidth={containerWidth}
