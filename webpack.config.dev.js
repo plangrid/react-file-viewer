@@ -86,6 +86,7 @@ module.exports = {
           /\.mp3$/,
           /\.rtf$/,
           /\.pdf$/,
+          /\.gif$/,
         ],
         loader: 'file-loader',
       },

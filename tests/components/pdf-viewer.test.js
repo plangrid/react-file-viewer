@@ -22,7 +22,7 @@ describe('pdf-viewer', () => {
   });
 
   it('calls fetchAndRenderPage on mount with visibility check disabled', () => {
-    mount(
+   mount(
       <PDFPage fileType='fake' filePath='fake/path' disableVisibilityCheck />
     );
     expect(spy).toHaveBeenCalled();
