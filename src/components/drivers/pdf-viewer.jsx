@@ -7,7 +7,7 @@ import 'pdfjs-dist/web/compatibility';
 
 PDFJS.disableWorker = true;
 const INCREASE_PERCENTAGE = 0.2;
-const DEFAULT_SCALE = 1.1;
+const DEFAULT_SCALE = 1;
 
 export class PDFPage extends React.Component {
   constructor(props) {
@@ -45,8 +45,7 @@ export class PDFPage extends React.Component {
   renderPage(page) {
     const { containerWidth, zoom } = this.props;
     const calculatedScale = (containerWidth / page.getViewport(DEFAULT_SCALE).width);
-    const scale = calculatedScale > DEFAULT_SCALE ? DEFAULT_SCALE : calculatedScale;
-    const viewport = page.getViewport(scale + zoom);
+    const viewport = page.getViewport(calculatedScale + zoom);
     const { width, height } = viewport;
 
     const context = this.canvas.getContext('2d');
