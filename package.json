@@ -53,6 +53,7 @@
     "css-loader": "^3.6.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme-wait": "^1.0.9",
     "eslint": "^7.3.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-import-resolver-webpack": "^0.12.2",
@@ -82,7 +83,6 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "enzyme-wait": "^1.0.9",
     "pdfjs-dist": "1.8.357",
     "prop-types": "^15.5.10",
     "react-visibility-sensor": "^5.0.2",
