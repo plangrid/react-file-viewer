@@ -1,8 +1,11 @@
 // Copyright (c) 2017 PlanGrid, Inc.
+import { readFileSync } from 'fs'
 
 import React from 'react';
 import { mount } from 'enzyme';
+import { createWaitForElement } from 'enzyme-wait';
 import { PDFPage } from 'components/drivers/pdf-viewer';
+import PDFDriver from '../../src/components/drivers/pdf-viewer'
 
 describe('pdf-viewer', () => {
   let spy;
@@ -33,5 +36,15 @@ describe('pdf-viewer', () => {
       <PDFPage fileType='fake' filePath='fake/path' disableVisibilityCheck={false} />
     );
     expect(spy).not.toHaveBeenCalled();
+  });
+
+  it('updates loading progress state', async () => {
+    const fileContents = readFileSync('./example_files/sample.pdf', {encoding: 'base64'});
+    const wrapper = mount(
+      <PDFDriver fileType='pdf' filePath={"data:application/pdf;base64, " + fileContents} />
+    );
+    createWaitForElement('.pdf-canvas')(wrapper).then((componentReady) => {
+      expect(componentReady.state().percent).toBe('100')
+    })
   });
 });

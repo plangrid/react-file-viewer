@@ -108,12 +108,12 @@ export default class PDFDriver extends React.Component {
     const { filePath } = this.props
     const containerWidth = this.container.offsetWidth
 
-    PDFJS.getDocument(
-      filePath,
-      null,
-      null,
-      this.progressCallback.bind(this)
-    ).then((pdf) => {
+    const loadingTask = PDFJS.getDocument(filePath)
+    loadingTask.onProgress = (progressData) => {
+      this.progressCallback(progressData)
+    }
+
+    loadingTask.then((pdf) => {
       this.setState({ pdf, containerWidth })
     })
   }

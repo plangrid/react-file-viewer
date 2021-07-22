@@ -53,6 +53,7 @@
     "css-loader": "^3.6.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme-wait": "^1.0.9",
     "eslint": "^7.3.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-import-resolver-webpack": "^0.12.2",
