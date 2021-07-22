@@ -82,6 +82,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "enzyme-wait": "^1.0.9",
     "pdfjs-dist": "1.8.357",
     "prop-types": "^15.5.10",
     "react-visibility-sensor": "^5.0.2",

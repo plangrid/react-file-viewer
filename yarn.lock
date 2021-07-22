@@ -1783,6 +1783,11 @@ assert@^1.1.1:
     object-assign "^4.1.1"
     util "0.10.3"
 
+assertion-error@^1.0.2:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.1.0.tgz#e60b6b0e8f301bd97e5375215bda406c85118c0b"
+  integrity sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==
+
 assign-symbols@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
@@ -3381,6 +3386,13 @@ enzyme-shallow-equal@^1.0.1:
   dependencies:
     has "^1.0.3"
     object-is "^1.0.2"
+
+enzyme-wait@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/enzyme-wait/-/enzyme-wait-1.0.9.tgz#f7a08bf49c7047358fa03e1f411a565c3a15101a"
+  integrity sha1-96CL9JxwRzWPoD4fQRpWXDoVEBo=
+  dependencies:
+    assertion-error "^1.0.2"
 
 enzyme@^3.8.0:
   version "3.11.0"
