@@ -83,16 +83,18 @@ class FileViewer extends Component {
 }
 
 FileViewer.propTypes = {
-  fileType: PropTypes.string.isRequired,
-  filePath: PropTypes.string.isRequired,
-  onError: PropTypes.func,
   errorComponent: PropTypes.element,
+  filePath: PropTypes.string.isRequired,
+  fileType: PropTypes.string.isRequired,
+  loadingComponent: PropTypes.element,
+  onError: PropTypes.func,
   unsupportedComponent: PropTypes.element,
 };
 
 FileViewer.defaultProps = {
-  onError: () => null,
   errorComponent: null,
+  loadingComponent: null,
+  onError: () => null,
   unsupportedComponent: null,
 };
 
