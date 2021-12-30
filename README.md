@@ -8,7 +8,7 @@ Extendable file viewer for web
  - Images: png, jpeg, gif, bmp, including 360-degree images
  - pdf
  - csv
- - xslx
+ - xlsx
  - docx
  - Video: mp4, webm
  - Audio: mp3
