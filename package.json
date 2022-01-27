@@ -86,7 +86,7 @@
     "pdfjs-dist": "1.8.357",
     "prop-types": "^15.5.10",
     "react-visibility-sensor": "^5.0.2",
-    "three": "0.126.0"
+    "three": "0.137.0"
   },
   "peerDependencies": {
     "react": "^16.6.3",
