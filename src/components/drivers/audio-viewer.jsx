@@ -15,7 +15,9 @@ class AudioViewer extends Component {
   }
 
   componentDidMount() {
-    this.audio.addEventListener('loadedmetadata', this.onCanPlay);
+    if (this.audio) {
+      this.audio.addEventListener('loadedmetadata', this.onCanPlay);
+    }
   }
 
   componentWillUnmount() {
