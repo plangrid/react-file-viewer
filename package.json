@@ -3,14 +3,14 @@
   "version": "1.2.3",
   "description": "Extendable file viewer for web",
   "main": "dist/index.js",
-  "module": "dist/index.js",
+  "module": "dist-es/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/plangrid/react-file-viewer.git"
   },
   "scripts": {
     "dev": "webpack -d --watch",
-    "build": "webpack -p --progress",
+    "build": "webpack -p --progress --profile --json > stats.json",
     "start": "node ./scripts/start.js",
     "lint": "node_modules/.bin/eslint ./src/**/*.jsx",
     "test": "node_modules/.bin/jest --env=jsdom --watch",
@@ -41,6 +41,7 @@
   "devDependencies": {
     "autoprefixer": "^7.1.0",
     "babel-core": "^6.24.1",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^20.0.3",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-class-properties": "^6.19.0",
@@ -75,9 +76,11 @@
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.5.1",
+    "webpack-bundle-analyzer": "^3.6.0",
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "@loadable/component": "^5.10.3",
     "comma-separated-values": "^3.6.4",
     "mammoth": "1.3.6",
     "pdfjs-dist": "1.8.357",
@@ -112,6 +115,7 @@
   },
   "eslintConfig": {
     "extends": "airbnb",
+    "parser": "babel-eslint",
     "plugins": [
       "import"
     ],

@@ -35,6 +35,7 @@ const config = {
         amd: 'react-dom',
       },
     },
+    '@loadable/component',
   ],
   module: {
     rules: [
@@ -61,11 +62,7 @@ const config = {
               ident: 'postcss',
               plugins: () => [
                 autoprefixer({
-                  browsers: [
-                    '>1%',
-                    'last 4 versions',
-                    'not ie < 9',
-                  ],
+                  browsers: ['>1%', 'last 4 versions', 'not ie < 9'],
                 }),
               ],
             },
