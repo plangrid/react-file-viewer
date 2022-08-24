@@ -143,7 +143,7 @@ export default class PDFDriver extends React.Component {
 
   render() {
     return (
-      <div className="pdf-viewer-container">
+      <div className="pdf-viewer-container" style={{overflow: 'hidden'}}>
         <div className="pdf-viewer" ref={node => this.container = node} >
           <div className="pdf-controlls-container">
             <div className="view-control" onClick={this.increaseZoom} >
