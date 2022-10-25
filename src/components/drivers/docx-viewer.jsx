@@ -10,6 +10,8 @@ export default class extends Component {
   componentDidMount() {
     const jsonFile = new XMLHttpRequest();
     jsonFile.open('GET', this.props.filePath, true);
+    jsonFile.setRequestHeader('Authorization', 'Bearer ' + this.props.jwtoken);
+
     jsonFile.send();
     jsonFile.responseType = 'arraybuffer';
     jsonFile.onreadystatechange = () => {
