@@ -39,9 +39,9 @@ describe('pdf-viewer', () => {
   });
 
   it('updates loading progress state', async () => {
-    const fileContents = readFileSync('./example_files/sample.pdf', {encoding: 'base64'});
+    const fileContents = readFileSync('./example_files/sample.pdf');
     const wrapper = mount(
-      <PDFDriver fileType='pdf' filePath={"data:application/pdf;base64, " + fileContents} />
+      <PDFDriver fileType='pdf' filePath={fileContents} />
     );
     createWaitForElement('.pdf-canvas')(wrapper).then((componentReady) => {
       expect(componentReady.state().percent).toBe('100')

@@ -3,7 +3,6 @@
 
 const path = require('path')
 const webpack = require('webpack')
-const autoprefixer = require('autoprefixer')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -56,8 +55,11 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: () => [autoprefixer()],
+              postcssOptions: {
+                plugins: [
+                  "autoprefixer",
+                ],
+              }
             },
           },
           {

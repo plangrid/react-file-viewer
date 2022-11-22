@@ -2,7 +2,6 @@
 // Modified work Copyright 2020, Trussworks, Inc.
 
 const path = require('path')
-const autoprefixer = require('autoprefixer')
 
 const BUILD_DIR = path.resolve(__dirname, './dist')
 const APP_DIR = path.resolve(__dirname, './src')
@@ -63,8 +62,11 @@ const config = {
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: () => [autoprefixer()],
+              postcssOptions: {
+                plugins: [
+                  "autoprefixer",
+                ],
+              }
             },
           },
           {
