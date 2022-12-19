@@ -8,7 +8,10 @@ const UnsupportedViewer = props => (
     <div className="unsupported-message">
       {props.unsupportedComponent
         ? <props.unsupportedComponent {...props} />
-        : <p className="alert"><b>{`.${props.fileType}`}</b> is not supported.</p>}
+        : (
+          <p className="alert">{`No preview available for this kind of file.
+          Download file to see the contents.`}</p>
+        )}
     </div>
   </div>
 );
