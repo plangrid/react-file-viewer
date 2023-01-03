@@ -54,10 +54,14 @@ class FileViewer extends Component {
       case 'docx': {
         return DocxViewer;
       }
+      case 'ogg':
+      case 'm4a':
+      case 'wav':
       case 'mp3': {
         return AudioViewer;
       }
-      case 'webm':
+      case 'webm':        
+      case 'mov':
       case 'mp4': {
         return VideoViewer;
       }

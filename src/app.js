@@ -15,15 +15,19 @@ import xlsx from '../example_files/SimpleSpreadsheet.xlsx';
 import photo360 from '../example_files/360photo.jpg';
 import avi from '../example_files/drop.avi';
 import webm from '../example_files/small.webm'
-import mov from '../example_files/step.mov'
+// import mov from '../example_files/step.mov'
 import mp3 from '../example_files/sample.mp3'
 import rtf from '../example_files/sample.rtf';
 import pdf from '../example_files/sample.pdf';
+import wav from '../example_files/sample.wav';
+import ogg from '../example_files/sample.ogg';
+import m4a from '../example_files/sample.m4a'
+import mov from '../example_files/sample.mov'
 
 ReactDOM.render(
   <FileViewer
-    fileType="xlsx"
-    filePath={xlsx}
+    fileType="mov"
+    filePath={mov}
     onGridSort={() => null}
   />,
   window.document.getElementById('app')
