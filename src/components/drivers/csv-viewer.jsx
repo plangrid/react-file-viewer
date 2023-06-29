@@ -51,6 +51,7 @@ class CsvViewer extends Component {
         rowsCount={rows.length}
         rowGetter={i => rows[i]}
         minHeight={this.props.height || 650}
+        onGridSort={this.props.onGridSort}
       />
     );
   }

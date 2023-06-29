@@ -22,8 +22,9 @@ import pdf from '../example_files/sample.pdf';
 
 ReactDOM.render(
   <FileViewer
-    fileType="pdf"
-    filePath={pdf}
+    fileType="xlsx"
+    filePath={xlsx}
+    onGridSort={() => null}
   />,
   window.document.getElementById('app')
 );
