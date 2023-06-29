@@ -11,6 +11,17 @@ class AudioViewer extends Component {
     this.state = {
       loading: true,
     };
+    this.onCanPlay = this.onCanPlay.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.audio) {
+      this.audio.addEventListener('loadedmetadata', this.onCanPlay);
+    }
+  }
+
+  componentWillUnmount() {
+    this.audio.removeEventListener('loadedmetadata', this.onCanPlay);
   }
 
   onCanPlay() {
@@ -25,14 +36,15 @@ class AudioViewer extends Component {
   }
 
   render() {
-    const visibility = this.state.loading ? 'hidden' : 'visible';
+    const display = this.state.loading ? 'none' : 'block';
     return (
       <div className="pg-driver-view">
         <div className="video-container">
           {this.renderLoading()}
           <audio
-            style={{ visibility }}
+            style={{ display }}
             controls
+            ref={audio => this.audio = audio}
             onCanPlay={e => this.onCanPlay(e)}
             src={this.props.filePath}
           >

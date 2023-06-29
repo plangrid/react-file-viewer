@@ -1,23 +1,23 @@
 {
-  "name": "react-file-viewer",
-  "version": "1.2.3",
+  "name": "react-file-viewer-extended",
+  "version": "2.2.0",
   "description": "Extendable file viewer for web",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/plangrid/react-file-viewer.git"
+    "url": "git+https://github.com/githubsylop/react-file-viewer-extend.git"
   },
   "scripts": {
     "dev": "webpack -d --watch",
     "build": "webpack -p --progress",
     "start": "node ./scripts/start.js",
-    "lint": "node_modules/.bin/eslint ./src/**/*.jsx",
-    "test": "node_modules/.bin/jest --env=jsdom --watch",
-    "jest": "node_modules/.bin/jest --env=jsdom",
+    "lint": "node node_modules/.bin/eslint ./src/**/*.jsx",
+    "test": "node  node_modules/.bin/jest --env=jsdom --watch",
+    "jest": "node node_modules/.bin/jest --env=jsdom",
     "tag-and-publish": "node ./scripts/publish.js"
   },
-  "author": "PlanGrid <opensource@plangrid.com>",
+  "author": "Gurpeet Singh <gurpreet013013@gmail.com>",
   "contributors": [
     {
       "name": "Alexei Schiopu",
@@ -35,9 +35,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/plangrid/react-file-viewer/issues"
+    "url": "https://github.com/gurpreet013/react-file-viewer/issues"
   },
-  "homepage": "https://github.com/plangrid/react-file-viewer#readme",
+  "homepage": "https://github.com/gurpreet013/react-file-viewer#readme",
   "devDependencies": {
     "autoprefixer": "^7.1.0",
     "babel-core": "^6.24.1",
@@ -66,7 +66,7 @@
     "html-webpack-plugin": "^2.28.0",
     "inquirer": "^3.0.6",
     "jest": "^23.6.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.14.1",
     "postcss-loader": "^2.0.5",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -79,18 +79,21 @@
   },
   "dependencies": {
     "comma-separated-values": "^3.6.4",
-    "mammoth": "1.3.6",
-    "pdfjs-dist": "1.8.357",
+    "mammoth": "^1.4.21",
+    "pdfjs-dist": "^v2.6.347",
     "prop-types": "^15.5.10",
     "react-data-grid": "^5.0.5",
     "react-visibility-sensor": "^5.0.2",
-    "three": "0.85.2",
-    "xlsx": "^0.10.1"
+    "three": "^0.138.3",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.0/xlsx-0.20.0.tgz"
   },
   "peerDependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "jest": {
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](build|node_modules|scripts|example_files)[/\\\\]"

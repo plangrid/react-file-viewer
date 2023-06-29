@@ -20,7 +20,7 @@ exports[`AudioViewer matches snapshot 1`] = `
       src="fake/path"
       style={
         Object {
-          "visibility": "hidden",
+          "display": "none",
         }
       }
     >

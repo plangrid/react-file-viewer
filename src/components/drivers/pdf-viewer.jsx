@@ -2,12 +2,11 @@
 
 import React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
-import { PDFJS } from 'pdfjs-dist/build/pdf.combined';
-import 'pdfjs-dist/web/compatibility';
+import * as PDFJS from 'pdfjs-dist/legacy/build/pdf';
 
 PDFJS.disableWorker = true;
 const INCREASE_PERCENTAGE = 0.2;
-const DEFAULT_SCALE = 1.1;
+const DEFAULT_SCALE = 1;
 
 export class PDFPage extends React.Component {
   constructor(props) {
@@ -45,8 +44,7 @@ export class PDFPage extends React.Component {
   renderPage(page) {
     const { containerWidth, zoom } = this.props;
     const calculatedScale = (containerWidth / page.getViewport(DEFAULT_SCALE).width);
-    const scale = calculatedScale > DEFAULT_SCALE ? DEFAULT_SCALE : calculatedScale;
-    const viewport = page.getViewport(scale + zoom);
+    const viewport = page.getViewport(calculatedScale + zoom);
     const { width, height } = viewport;
 
     const context = this.canvas.getContext('2d');
@@ -67,7 +65,7 @@ export class PDFPage extends React.Component {
           <VisibilitySensor onChange={this.onChange} partialVisibility >
             <canvas ref={node => this.canvas = node} width="670" height="870" />
           </VisibilitySensor>
-            )
+        )
         }
       </div>
     );
@@ -91,9 +89,10 @@ export default class PDFDriver extends React.Component {
 
   componentDidMount() {
     const { filePath } = this.props;
-    const containerWidth = this.container.offsetWidth;
-    PDFJS.getDocument(filePath, null, null, this.progressCallback.bind(this)).then((pdf) => {
-      this.setState({ pdf, containerWidth });
+    const loadingTask = PDFJS.getDocument(filePath);
+    loadingTask.onProgress = this.progressCallback.bind(this);
+    loadingTask.promise.then((pdf) => {
+      this.setState({ pdf, containerWidth: this.container ? this.container.offsetWidth : 0 });
     });
   }
 

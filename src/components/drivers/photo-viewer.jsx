@@ -12,7 +12,11 @@ export default class PhotoViewer extends Component {
     this.props.texture.image.style.width = `${imageDimensions.width}px`;
     this.props.texture.image.style.height = `${imageDimensions.height}px`;
     this.props.texture.image.setAttribute('class', 'photo');
-    document.getElementById('pg-photo-container').appendChild(this.props.texture.image);
+    document.getElementById(this.getElementId()).appendChild(this.props.texture.image);
+  }
+
+  getElementId() {
+    return `pg-photo-container-${this.props.uniqIdentifier}`;
   }
 
   getImageDimensions(originalWidth, originalHeight) {
@@ -46,7 +50,7 @@ export default class PhotoViewer extends Component {
     };
 
     return (
-      <div style={containerStyles} className="photo-viewer-container" id="pg-photo-container" />
+      <div style={containerStyles} className="photo-viewer-container" id={this.getElementId()} />
     );
   }
 }

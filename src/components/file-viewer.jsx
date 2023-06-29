@@ -20,25 +20,19 @@ import {
 class FileViewer extends Component {
   constructor(props) {
     super(props);
+    this.uniqIdentifier = Math.floor(Math.random() * 100000);
     this.state = {
       loading: true,
     };
   }
 
-  componentDidMount() {
-    const container = document.getElementById('pg-viewer');
-    const height = container ? container.clientHeight : 0;
-    const width = container ? container.clientWidth : 0;
-    this.setState({ height, width });
-  }
-
-  getDriver() {
+  getDriver(commonProps) {
     switch (this.props.fileType) {
       case 'csv': {
-        return withFetching(CsvViewer, this.props);
+        return withFetching(CsvViewer, commonProps);
       }
       case 'xlsx': {
-        const newProps = Object.assign({}, this.props, { responseType: 'arraybuffer' });
+        const newProps = Object.assign({}, commonProps, { responseType: 'arraybuffer' });
         return withFetching(XlsxViewer, newProps);
       }
       case 'jpg':
@@ -71,11 +65,15 @@ class FileViewer extends Component {
   }
 
   render() {
-    const Driver = this.getDriver(this.props);
+    const commonProps = Object.assign({}, this.props, { uniqIdentifier: this.uniqIdentifier });
+    const Driver = this.getDriver(commonProps);
+    const container = document.getElementById('pg-viewer');
+    const height = container ? container.clientHeight : 0;
+    const width = container ? container.clientWidth : 0;
     return (
       <div className="pg-viewer-wrapper">
         <div className="pg-viewer" id="pg-viewer">
-          <Driver {...this.props} width={this.state.width} height={this.state.height} />
+          <Driver {...commonProps} width={width} height={height} />
         </div>
       </div>
     );

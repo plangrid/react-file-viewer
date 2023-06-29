@@ -11,6 +11,15 @@ class VideoViewer extends Component {
     this.state = {
       loading: true,
     };
+    this.onCanPlay = this.onCanPlay.bind(this);
+  }
+
+  componentDidMount() {
+    this.video.addEventListener('loadedmetadata', this.onCanPlay);
+  }
+
+  componentWillUnmount() {
+    this.video.removeEventListener('loadedmetadata', this.onCanPlay);
   }
 
   onCanPlay() {
@@ -25,16 +34,17 @@ class VideoViewer extends Component {
   }
 
   render() {
-    const visibility = this.state.loading ? 'hidden' : 'visible';
+    const display = this.state.loading ? 'none' : 'block';
     return (
       <div className="pg-driver-view">
         <div className="video-container">
           {this.renderLoading()}
           <video
-            style={{ visibility }}
+            style={{ display }}
             controls
             type={`video/${this.props.fileType}`}
             onCanPlay={e => this.onCanPlay(e)}
+            ref={video => this.video = video}
             src={this.props.filePath}
           >
             Video playback is not supported by your browser.
