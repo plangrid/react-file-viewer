@@ -1,20 +1,20 @@
 {
   "name": "react-file-viewer-extended",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Extendable file viewer for web",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gurpreet013/react-file-viewer.git"
+    "url": "git+https://github.com/githubsylop/react-file-viewer-extend.git"
   },
   "scripts": {
     "dev": "webpack -d --watch",
     "build": "webpack -p --progress",
     "start": "node ./scripts/start.js",
-    "lint": "node_modules/.bin/eslint ./src/**/*.jsx",
-    "test": "node_modules/.bin/jest --env=jsdom --watch",
-    "jest": "node_modules/.bin/jest --env=jsdom",
+    "lint": "node node_modules/.bin/eslint ./src/**/*.jsx",
+    "test": "node  node_modules/.bin/jest --env=jsdom --watch",
+    "jest": "node node_modules/.bin/jest --env=jsdom",
     "tag-and-publish": "node ./scripts/publish.js"
   },
   "author": "Gurpeet Singh <gurpreet013013@gmail.com>",
@@ -85,7 +85,7 @@
     "react-data-grid": "^5.0.5",
     "react-visibility-sensor": "^5.0.2",
     "three": "^0.138.3",
-    "xlsx": "^0.18.4"
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.0/xlsx-0.20.0.tgz"
   },
   "peerDependencies": {
     "react": "^16.6.3",
