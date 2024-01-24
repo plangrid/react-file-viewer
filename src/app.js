@@ -25,16 +25,11 @@ const demoImages = [solarImage, photo360];
 const getNextDemoImage = (currentDemoImage) => {
   const currentIndex = demoImages.indexOf(currentDemoImage);
   const nextIndex = currentIndex + 1 >= demoImages.length ? 0 : currentIndex + 1;
-  // DEBUG
-  console.log('nextIndex:', nextIndex);
   return demoImages[nextIndex];
 };
 
 const App = () => {
   const [demoImage, setDemoImage] = useState(demoImages[0]);
-
-  // DEBUG
-  console.log('demoImage:', demoImage);
 
   return (
     <div>

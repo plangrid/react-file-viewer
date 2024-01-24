@@ -26,15 +26,31 @@ export default class PhotoViewerWrapper extends Component {
   }
 
   componentDidMount() {
-    // spike on using promises and a different loader or adding three js loading manager
+    this.loadPhoto();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.filePath !== prevProps.filePath) {
+      this.loadPhoto();
+    }
+  }
+
+  loadPhoto() {
+    this.setState({
+      imageLoaded: false,
+    });
+    const urlToLoad = this.props.filePath;
     const loader = new THREE.TextureLoader();
     loader.crossOrigin = '';
-    // load a resource
     loader.load(
-      // resource URL
-      this.props.filePath,
-      // Function when resource is   loaded
+      urlToLoad,
       (texture) => {
+        // If the filePath prop changed since we started loading,
+        // we need to abort because the new image will have already started loading.
+        if (this.props.filePath !== urlToLoad) {
+          return;
+        }
+
         this.setState({
           originalWidth: texture.image.width,
           originalHeight: texture.image.height,
