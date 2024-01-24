@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "webpack -d --watch",
-    "build": "webpack -p --progress",
+    "build": "webpack --progress",
     "start": "node ./scripts/start.js",
     "lint": "node_modules/.bin/eslint ./src/**/*.jsx",
     "test": "node_modules/.bin/jest --env=jsdom --watch",
