@@ -71,8 +71,8 @@
     "inquirer": "^3.0.6",
     "jest": "^23.6.0",
     "postcss-loader": "^2.0.5",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-test-renderer": "^16.6.3",
     "sass": "^1.70.0",
     "sass-loader": "^6.0.5",
@@ -92,8 +92,8 @@
     "xlsx": "^0.10.1"
   },
   "peerDependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "jest": {
     "testPathIgnorePatterns": [
