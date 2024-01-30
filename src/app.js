@@ -2,7 +2,7 @@
 
 import 'styles/main.scss';
 
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import FileViewer from './components/file-viewer';
 import sampleHouse from '../example_files/SampleHouse.wexbim';
@@ -20,11 +20,50 @@ import mp3 from '../example_files/sample.mp3'
 import rtf from '../example_files/sample.rtf';
 import pdf from '../example_files/sample.pdf';
 
+const demoImages = [solarImage, photo360];
+
+const getNextDemoImage = (currentDemoImage) => {
+  const currentIndex = demoImages.indexOf(currentDemoImage);
+  const nextIndex = currentIndex + 1 >= demoImages.length ? 0 : currentIndex + 1;
+  return demoImages[nextIndex];
+};
+
+const App = () => {
+  const [demoImage, setDemoImage] = useState(demoImages[0]);
+
+  return (
+    <div>
+      <p>Scroll down for more demos.</p>
+
+      <div style={{
+        height: '100vh',
+        overflow: 'hidden',
+      }}>
+        <h2>xlsx demo</h2>
+        <FileViewer
+          fileType="xlsx"
+          filePath={xlsx}
+          onGridSort={() => null}
+        />
+      </div>
+
+      <div style={{
+        backgroundColor: 'white',
+        margin: 'auto',
+      }}>
+        <h2>image demo</h2>
+        <button onClick={() => setDemoImage(getNextDemoImage(demoImage))}>Swap image</button>
+        <FileViewer
+          fileType="jpeg"
+          filePath={demoImage}
+          onGridSort={() => null}
+        />
+      </div>
+    </div>
+  );
+};
+
 ReactDOM.render(
-  <FileViewer
-    fileType="xlsx"
-    filePath={xlsx}
-    onGridSort={() => null}
-  />,
+  <App />,
   window.document.getElementById('app')
 );

@@ -72,7 +72,7 @@ purposes. It is by default served via webpack-dev-server.
 
 ### To start demo app
 
-`make start` will start the demo app served by webpack-dev-server
+`npm run start` will start the demo app served by webpack-dev-server
 
 ### Testing
 
@@ -81,7 +81,7 @@ Tests use Jest and Enzyme.
 Run tests with:
 
 ```
-make test
+npm run test
 ```
 
 This starts Jest in watch mode. To run a particular test file, while in watch mode
@@ -97,7 +97,7 @@ npm run jest --updateSnapshot
 
 ### To run the linter
 
-`make lint`
+`npm run lint`
 
 ### Extending the file viewer
 

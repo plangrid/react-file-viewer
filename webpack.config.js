@@ -14,6 +14,7 @@ const config = {
     library: ['FileViewer'],
     libraryTarget: 'umd',
   },
+  devtool: 'source-map',
   resolve: {
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
     extensions: ['.js', '.jsx', '.json'],
@@ -72,6 +73,9 @@ const config = {
           },
           {
             loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+            },
           },
         ],
       },
