@@ -4,6 +4,10 @@
   "description": "Extendable file viewer for web",
   "main": "dist/index.js",
   "module": "dist/index.js",
+  "engines": {
+    "node": "^14.17.6",
+    "npm": "^8.19.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/plangrid/react-file-viewer.git"
