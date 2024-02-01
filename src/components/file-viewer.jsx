@@ -85,6 +85,8 @@ class FileViewer extends Component {
 FileViewer.propTypes = {
   fileType: PropTypes.string.isRequired,
   filePath: PropTypes.string.isRequired,
+  jwt: PropTypes.string,
+
   onError: PropTypes.func,
   errorComponent: PropTypes.element,
   unsupportedComponent: PropTypes.element,
