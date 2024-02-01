@@ -6,7 +6,9 @@ import 'styles/loading.scss';
 
 const Loading = () => (
   <div className="loading-container">
-    <span className="loading" />
+    {props.loadingComponent
+      ? <props.loadingComponent {...props} />
+      : <span className="loading" />}
   </div>
 );
 
