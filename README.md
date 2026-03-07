@@ -117,3 +117,4 @@ case 'rtf':
 ## Roadmap
 
 - Remove ignored linting rules and fix them
+This line is added in feature branch for merge conflict experiment.
